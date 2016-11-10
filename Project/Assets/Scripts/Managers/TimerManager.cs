@@ -52,6 +52,14 @@ public class TimerManager : Singleton<TimerManager>
 		StartCoroutine(coroutine);
 	}
 
+	public void RestartTimer()
+	{
+		time = 100;
+		currentHealth.fillAmount = time / 100.0f;
+		timeText.text = time.ToString("00") + " % ";
+		StartTimer();
+	}
+
 	public void AddHealth(int health)
 	{
 		time += health;

@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{C72EC17B-8F22-CA65-5639-08F833D0900E}</ProjectGuid>
+    <ProjectGuid>{5B9FF267-005F-A3BF-219E-FEAE2D8C894F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,9 +45,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Models\Water\Scripts\WaterBasic.cs" />
+     <Compile Include="Assets\Prefabs\Water\Scripts\WaterBasic.cs" />
      <Compile Include="Assets\Scripts\AddHealth.cs" />
      <Compile Include="Assets\Scripts\BobbingInWater.cs" />
+     <Compile Include="Assets\Scripts\BridgeFall.cs" />
      <Compile Include="Assets\Scripts\DieInWater.cs" />
      <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />
      <Compile Include="Assets\Scripts\Managers\MenuManager.cs" />
@@ -56,9 +57,11 @@
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\SafeZone.cs" />
      <Compile Include="Assets\Scripts\Singleton.cs" />
+     <Compile Include="Assets\Scripts\SnowballRoll.cs" />
+     <Compile Include="Assets\Scripts\SnowballSpawn.cs" />
      <Compile Include="Assets\Scripts\WindDamage.cs" />
      <Compile Include="Assets\Scripts\WindPush.cs" />
-     <None Include="Assets\Models\Water\Shaders\FXWaterBasic.shader" />
+     <None Include="Assets\Prefabs\Water\Shaders\FXWaterBasic.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

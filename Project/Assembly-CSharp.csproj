@@ -49,12 +49,15 @@
      <Compile Include="Assets\Scripts\AddHealth.cs" />
      <Compile Include="Assets\Scripts\BobbingInWater.cs" />
      <Compile Include="Assets\Scripts\BridgeFall.cs" />
+     <Compile Include="Assets\Scripts\Cinematic.cs" />
      <Compile Include="Assets\Scripts\DieInWater.cs" />
      <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />
      <Compile Include="Assets\Scripts\Managers\MenuManager.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerStateManager.cs" />
      <Compile Include="Assets\Scripts\Managers\TimerManager.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\QuestManager\PickMeUp.cs" />
+     <Compile Include="Assets\Scripts\QuestManager\PickUpBranches.cs" />
      <Compile Include="Assets\Scripts\SafeZone.cs" />
      <Compile Include="Assets\Scripts\Singleton.cs" />
      <Compile Include="Assets\Scripts\SnowballRoll.cs" />

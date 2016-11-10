@@ -8,8 +8,7 @@ public class MenuManager : Singleton<MenuManager>
 
 	void Start()
 	{
-		deathMenu.SetActive(false);
-		escapeMenu.SetActive(false);
+		CloseAllMenus();
 	}
 
 	void Update()
@@ -22,6 +21,12 @@ public class MenuManager : Singleton<MenuManager>
 				CameraManager.Instance.ToggleCameraMoving(!escapeMenu.activeSelf);
 			}
 		}
+	}
+
+	public void CloseAllMenus()
+	{
+		deathMenu.SetActive(false);
+		escapeMenu.SetActive(false);
 	}
 
 	public void Death()

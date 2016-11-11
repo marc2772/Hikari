@@ -11,12 +11,15 @@ public class TimerManager : Singleton<TimerManager>
 	float timeBetweenUpdates;
 	IEnumerator coroutine;
 
+	void Awake()
+	{
+		coroutine = UpdateTime();
+	}
+
 	void Start ()
     {
 		time = 100;
 		timeBetweenUpdates = 1.0f;
-
-		coroutine = UpdateTime();
 
 		StartTimer();
 	}
@@ -81,5 +84,22 @@ public class TimerManager : Singleton<TimerManager>
 	public void ChangeTimeBetweenUpdates(float newTime)
 	{
 		timeBetweenUpdates = newTime;
+	}
+
+	public void SetHealth(int health)
+	{
+		time = health;
+		if(time > 100)
+			time = 100;
+		if(time <= 0)
+		{
+			timeText.text = "Game over";
+			PlayerStateManager.Instance.Death();
+		}
+		else
+		{
+			currentHealth.fillAmount = time / 100.0f;
+			timeText.text = time.ToString("00") + " % "; 
+		}
 	}
 }

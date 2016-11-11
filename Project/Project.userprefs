@@ -1,15 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\MenuManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\TimerManager.cs">
     <Files>
       <File FileName="Assets\Scripts\SnowballRoll.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\DieInWater.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\SnowballSpawn.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\BridgeFall.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\PlayerStateManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\PlayerStateManager.cs" Line="24" Column="37" />
       <File FileName="Assets\Scripts\PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\CameraManager.cs" Line="31" Column="1" />
-      <File FileName="Assets\Scripts\Managers\MenuManager.cs" Line="32" Column="3" />
+      <File FileName="Assets\Scripts\Managers\CameraManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\MenuManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\TimerManager.cs" Line="23" Column="3" />
+      <File FileName="Assets\Scripts\QuestManager\PickMeUp.cs" Line="17" Column="37" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

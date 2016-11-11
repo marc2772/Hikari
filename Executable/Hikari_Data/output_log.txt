@@ -20,3 +20,8 @@ Platform assembly: D:\GitHub\Hikari\Executable\Hikari_Data\Managed\System.dll (t
 desktop: 1920x1080 60Hz; virtual: 3280x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.586214 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 22a0 -> priority: 1 
+  Thread -> id: 528 -> priority: 1 

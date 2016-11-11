@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\CameraManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\MenuManager.cs">
     <Files>
       <File FileName="Assets\Scripts\SnowballRoll.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\DieInWater.cs" Line="1" Column="1" />
@@ -8,7 +8,8 @@
       <File FileName="Assets\Scripts\BridgeFall.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Managers\PlayerStateManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\CameraManager.cs" Line="32" Column="26" />
+      <File FileName="Assets\Scripts\Managers\CameraManager.cs" Line="31" Column="1" />
+      <File FileName="Assets\Scripts\Managers\MenuManager.cs" Line="32" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

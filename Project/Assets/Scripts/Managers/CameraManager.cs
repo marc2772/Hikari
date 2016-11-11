@@ -28,9 +28,6 @@ public class CameraManager : Singleton<CameraManager>
 		
 	void Start() 
 	{
-		//Set Cursor to not be visible
-		Cursor.visible = false;
-
 		Vector3 angles = transform.eulerAngles;
 		angleY = angles.y;
 		angleX = angles.x;

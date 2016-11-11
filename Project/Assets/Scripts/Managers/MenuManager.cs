@@ -19,6 +19,7 @@ public class MenuManager : Singleton<MenuManager>
 			{
 				escapeMenu.SetActive(!escapeMenu.activeSelf);
 				CameraManager.Instance.ToggleCameraMoving(!escapeMenu.activeSelf);
+				Cursor.visible = !Cursor.visible;
 			}
 		}
 	}
@@ -27,11 +28,13 @@ public class MenuManager : Singleton<MenuManager>
 	{
 		deathMenu.SetActive(false);
 		escapeMenu.SetActive(false);
+		Cursor.visible = false;
 	}
 
 	public void Death()
 	{
 		deathMenu.SetActive(true);
 		CameraManager.Instance.ToggleCameraMoving(false);
+		Cursor.visible = true;
 	}
 }

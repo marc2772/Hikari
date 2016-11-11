@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class PickUpBranches : MonoBehaviour
+public class PickUpBranches : Singleton<PickUpBranches>
 {
 	public GameObject branch;
-	private const int numberOfBranches = 6;
+	private const int numberOfBranches = 5;
 	[Range(0, numberOfBranches)]
 	public int countBranch;
 
@@ -14,15 +14,19 @@ public class PickUpBranches : MonoBehaviour
 	public GameObject[] iceFloating;
 
 	private bool showGUI = true;
-	private bool accepted = false;
+	public bool accepted = false; // to know if addhealth can increase countBranch
 	private bool finished = false;
 	private GameObject player;
 
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player");
+		Cursor.visible = !Cursor.visible;
 		player.GetComponent<Rigidbody> ().isKinematic = true;
-		// TimerManager.Instance.StopTimer ();
+		foreach (var ice in iceFloating)
+			ice.SetActive (false);
+		TimerManager.Instance.StopTimer ();
+		TimerManager.Instance.SetHealth (75);
 
 		countBranch = 0;        
 	}
@@ -38,6 +42,7 @@ public class PickUpBranches : MonoBehaviour
 				showGUI = false;
 				accepted = true;
 				InstantiateObjects ();
+				Cursor.visible = !Cursor.visible;
 				player.GetComponent<Rigidbody> ().isKinematic = false;
 			}         
 			GUI.EndGroup ();
@@ -54,8 +59,9 @@ public class PickUpBranches : MonoBehaviour
 				finished = false;
 				foreach (var ice in iceFloating)
 					ice.SetActive (true);
+				Cursor.visible = !Cursor.visible;
 				player.GetComponent<Rigidbody> ().isKinematic = false;
-				// TimerManager.Instance.StartTimer ();
+				TimerManager.Instance.StartTimer ();
 			}         
 			GUI.EndGroup ();
 		}
@@ -89,6 +95,7 @@ public class PickUpBranches : MonoBehaviour
 		{
 			accepted = false;
 			finished = true;
+			Cursor.visible = !Cursor.visible;
 			player.GetComponent<Rigidbody> ().isKinematic = true;
 		}
 		else

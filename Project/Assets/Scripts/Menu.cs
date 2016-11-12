@@ -12,6 +12,9 @@ public class Menu : MonoBehaviour
 
 	public void Main()
 	{
+		//To lock the cursor within the window
+		Cursor.lockState = CursorLockMode.Confined;
+
 		MainMenu.SetActive(true);
 		PlayMenu.SetActive(false);
 		SettingsMenu.SetActive(false);

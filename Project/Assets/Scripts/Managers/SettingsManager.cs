@@ -16,6 +16,12 @@ public class SettingsManager : Singleton<SettingsManager>
 		MouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 120);
 	}
 
+	void OnApplicationFocus(bool hasFocus)
+	{
+		if(hasFocus)
+			Cursor.lockState = CursorLockMode.Confined;
+	}
+
 	void SetMute(bool mute)
 	{
 		Mute = mute;

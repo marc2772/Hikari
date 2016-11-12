@@ -14,7 +14,12 @@ public class AddHealth : MonoBehaviour
 			if (PickUpBranches.Instance.accepted && this.name == "Twig(Clone)")
 				PickUpBranches.Instance.countBranch++;
 			TimerManager.Instance.AddHealth(additionalHealth);
-            Destroy(gameObject); //self destruction immediatly 
+			gameObject.SetActive(false); 
         }
     }
+
+	void Respawn()
+	{
+		gameObject.SetActive(true);
+	}
 }

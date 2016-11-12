@@ -7,7 +7,7 @@ public class SnowballSpawn : MonoBehaviour
 
 	void Start ()
 	{
-		InvokeRepeating("SpawnSnowball", 0.0f, 10.0f);
+		InvokeRepeating("SpawnSnowball", 0.0f, 8.0f);
 	}
 
 	void SpawnSnowball()

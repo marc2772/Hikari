@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 
@@ -11,8 +12,9 @@ public class AddHealth : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         { 
-			if (PickUpBranches.Instance.accepted && this.name == "Twig(Clone)")
-				PickUpBranches.Instance.countBranch++;
+			if(SceneManager.GetActiveScene().name == "Level01")
+				if (PickUpBranches.Instance.accepted && this.name == "Twig(Clone)")
+					PickUpBranches.Instance.countBranch++;
 			TimerManager.Instance.AddHealth(additionalHealth);
 			gameObject.SetActive(false); 
         }

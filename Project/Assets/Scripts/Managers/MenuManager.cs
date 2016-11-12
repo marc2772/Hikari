@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class MenuManager : Singleton<MenuManager>
@@ -36,5 +37,10 @@ public class MenuManager : Singleton<MenuManager>
 		deathMenu.SetActive(true);
 		CameraManager.Instance.ToggleCameraMoving(false);
 		Cursor.visible = true;
+	}
+
+	public void MainMenu()
+	{
+		SceneManager.LoadScene("Menu");
 	}
 }

@@ -20,7 +20,7 @@ public class AddHealth : MonoBehaviour
         }
     }
 
-	void Respawn()
+	public void Respawn()
 	{
 		gameObject.SetActive(true);
 	}

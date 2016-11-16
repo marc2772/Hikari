@@ -3,11 +3,18 @@ using System.Collections;
 
 public class WindPush : MonoBehaviour
 {
-	
 	public float windForce; //the force of the wind
 	public Vector3 windDirection;
 	public float repeatingPush;
 	private Rigidbody rb;
+
+	float timeBetweenUpdates = 0.05f;
+	IEnumerator coroutine;
+
+	void Awake()
+	{
+		coroutine = Push ();
+	}
 
 	void Start ()
 	{
@@ -18,7 +25,7 @@ public class WindPush : MonoBehaviour
 	{
 		if (collider.gameObject.CompareTag("Player"))
 		{
-			InvokeRepeating("Push", 0.0f, repeatingPush);
+			StartTimer ();
 		}
 	}
 
@@ -26,12 +33,27 @@ public class WindPush : MonoBehaviour
 	{
 		if (collider.gameObject.CompareTag("Player"))
 		{
-			CancelInvoke();
+			StopTimer ();
 		}
 	}
 
-	void Push()
+	public void StopTimer()
 	{
-		rb.AddForce(windDirection * windForce, ForceMode.Acceleration);
+		StopCoroutine(coroutine);
+	}
+
+	public void StartTimer()
+	{
+		StartCoroutine(coroutine);
+	}
+
+	IEnumerator Push()
+	{
+		while(true)
+		{
+			rb.AddForce(windDirection * windForce, ForceMode.Acceleration);
+
+			yield return new WaitForSeconds(timeBetweenUpdates);
+		}
 	}
 }

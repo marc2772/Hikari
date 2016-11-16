@@ -37,8 +37,8 @@ public class PickUpBranches : Singleton<PickUpBranches>
 			int BoxHeight = 150;
 			GUI.BeginGroup (new Rect ((Screen.width - BoxWidth) / 2, (Screen.height - BoxHeight) / 2, BoxWidth, BoxHeight));
 			GUI.Box (new Rect (0, 0, BoxWidth, BoxHeight), "\" Hold your breath! \"");
-			GUI.Label (new Rect (10, 20, BoxWidth - 10, BoxHeight), "You're holding you're beath! It's so cold and windy out there, maybe you should collect some branches to let you breath again before leaving the camp ...");
-			if (GUI.Button (new Rect (110, 90, 80, 50), "Accept")) {
+			GUI.Label (new Rect (10, 20, BoxWidth - 10, BoxHeight), "You're holding you're beath: it's so cold and windy out there, maybe you should collect some branches so that you can breath again before leaving the deserted camp ...");
+			if (GUI.Button (new Rect (110, 90, 80, 50), "Ok")) {
 				showGUI = false;
 				accepted = true;
 				InstantiateObjects ();
@@ -54,7 +54,7 @@ public class PickUpBranches : Singleton<PickUpBranches>
 			int BoxHeight = 150;
 			GUI.BeginGroup (new Rect ((Screen.width - BoxWidth) / 2, (Screen.height - BoxHeight) / 2, BoxWidth, BoxHeight));
 			GUI.Box (new Rect (0, 0, BoxWidth, BoxHeight), "\" Into the wild! \"");
-			GUI.Label (new Rect (10, 20, BoxWidth - 10, BoxHeight), "Warmer now ? Fine, let's have a go ahead! See? Ice blocks in front of the campfire, maybe you should try and jump your way trough ...");
+			GUI.Label (new Rect (10, 20, BoxWidth - 10, BoxHeight), "Warmer now? Fine, let's have a go ahead! You need to retrieve the other flame you're linked to. See these ice blocks in front of the campfire? Maybe you should try and jump your way trough ...");
 			if (GUI.Button (new Rect (110, 90, 80, 50), "Let's go")) {
 				finished = false;
 				foreach (var ice in iceFloating)

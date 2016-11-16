@@ -1,13 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\RespawnAll.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\WindPush.cs">
     <Files>
-      <File FileName="Assets\Scripts\AddHealth.cs" Line="19" Column="32" />
-      <File FileName="Assets\Scripts\Managers\SettingsManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Menu.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SnowballSpawn.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\MenuManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\RespawnAll.cs" Line="17" Column="1" />
+      <File FileName="Assets\Scripts\AddHealth.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SafeZone.cs" Line="27" Column="2" />
+      <File FileName="Assets\Scripts\WindPush.cs" Line="59" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

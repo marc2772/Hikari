@@ -4,20 +4,24 @@ using System.Collections;
 
 public class SafeZone : MonoBehaviour
 {
-    void OnTriggerEnter(Collider collider)
-    {
-        if (collider.gameObject.CompareTag("Player"))
-        {
+	public WindPush windzone;
+
+	void OnTriggerEnter(Collider collider)
+	{
+		if (collider.gameObject.CompareTag("Player"))
+		{
 			TimerManager.Instance.ChangeTimeBetweenUpdates(1.0f);
-        }
-    }
+			windzone.StopTimer ();
+		}
+	}
 
 
-    void OnTriggerExit(Collider collider)
-    {
-        if (collider.gameObject.CompareTag("Player"))
-        {
+	void OnTriggerExit(Collider collider)
+	{
+		if (collider.gameObject.CompareTag("Player"))
+		{
 			TimerManager.Instance.ChangeTimeBetweenUpdates(0.1f);
-        }
-    }
+			windzone.StartTimer ();
+		}
+	}
 }

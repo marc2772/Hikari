@@ -18,9 +18,13 @@ public class PickUpBranches : Singleton<PickUpBranches>
 	private bool finished = false;
 	private GameObject player;
 
-	// Use this for initialization
-	void Start () {
+	void Awake()
+	{
 		player = GameObject.FindGameObjectWithTag("Player");
+	}
+
+	void Start ()
+	{
 		Cursor.visible = !Cursor.visible;
 		player.GetComponent<Rigidbody> ().isKinematic = true;
 		foreach (var ice in iceFloating)
@@ -31,8 +35,11 @@ public class PickUpBranches : Singleton<PickUpBranches>
 		countBranch = 0;        
 	}
 
-	void OnGUI () {
-		if (showGUI) {
+	void OnGUI ()
+	{
+		if (showGUI)
+		{
+			CameraManager.Instance.ToggleCameraMoving(false);
 			int BoxWidth = 300;
 			int BoxHeight = 150;
 			GUI.BeginGroup (new Rect ((Screen.width - BoxWidth) / 2, (Screen.height - BoxHeight) / 2, BoxWidth, BoxHeight));
@@ -44,12 +51,14 @@ public class PickUpBranches : Singleton<PickUpBranches>
 				InstantiateObjects ();
 				Cursor.visible = !Cursor.visible;
 				player.GetComponent<Rigidbody> ().isKinematic = false;
+				CameraManager.Instance.ToggleCameraMoving(true);
 			}         
 			GUI.EndGroup ();
 		} else if (accepted)
 			SetCountText ();
 		else if (finished) 
 		{
+			CameraManager.Instance.ToggleCameraMoving(false);
 			int BoxWidth = 300;
 			int BoxHeight = 150;
 			GUI.BeginGroup (new Rect ((Screen.width - BoxWidth) / 2, (Screen.height - BoxHeight) / 2, BoxWidth, BoxHeight));
@@ -61,6 +70,7 @@ public class PickUpBranches : Singleton<PickUpBranches>
 					ice.SetActive (true);
 				Cursor.visible = !Cursor.visible;
 				player.GetComponent<Rigidbody> ().isKinematic = false;
+				CameraManager.Instance.ToggleCameraMoving(true);
 				TimerManager.Instance.StartTimer ();
 			}         
 			GUI.EndGroup ();

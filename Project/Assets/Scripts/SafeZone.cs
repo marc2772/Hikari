@@ -20,7 +20,7 @@ public class SafeZone : MonoBehaviour
 	{
 		if (collider.gameObject.CompareTag("Player"))
 		{
-			TimerManager.Instance.ChangeTimeBetweenUpdates(0.1f);
+			TimerManager.Instance.ChangeTimeBetweenUpdates(0.25f);
 			windzone.StartTimer ();
 		}
 	}

@@ -4,13 +4,11 @@ using System.Collections;
 
 public class WindDamage : MonoBehaviour
 {
-	public float newTimeUpdate;
-
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-			TimerManager.Instance.ChangeTimeBetweenUpdates(newTimeUpdate);
+			TimerManager.Instance.ChangeTimeBetweenUpdates(0.25f);
         }
     }
 

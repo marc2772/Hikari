@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Cinematic : MonoBehaviour {
+public class Cinematic : MonoBehaviour
+{
 
 	public GameObject mainCamera;
 	public GameObject cinematicCamera;
-	public float rotationTime = 10.0f;
 
-	private GameObject player;
-	private float currentTime = 0.0f;
-	private bool showGUI = false;
+	float rotationTime = 10.0f;
+	GameObject player;
+	float currentTime = 0.0f;
+	bool showGUI = false;
 
 	void OnTriggerEnter(Collider collider)
 	{
@@ -30,7 +31,7 @@ public class Cinematic : MonoBehaviour {
 	{
 		if (cinematicCamera.activeSelf == true && currentTime <= rotationTime) 
 		{
-			cinematicCamera.transform.RotateAround (cinematicCamera.transform.position, Vector3.up, 360.0f * Time.deltaTime / rotationTime);
+			cinematicCamera.transform.RotateAround (cinematicCamera.transform.position, Vector3.up, 300.0f * Time.deltaTime / rotationTime);
 			currentTime += Time.deltaTime;
 			if (currentTime >= rotationTime) {
 				showGUI = true;
@@ -45,7 +46,7 @@ public class Cinematic : MonoBehaviour {
 			int BoxHeight = 150;
 			GUI.BeginGroup (new Rect ((Screen.width - BoxWidth) / 2, (Screen.height - BoxHeight) / 2, BoxWidth, BoxHeight));
 			GUI.Box (new Rect (0, 0, BoxWidth, BoxHeight), "\" What have you done? \"");
-			GUI.Label (new Rect (10, 20, BoxWidth - 10, BoxHeight), "Look all around! It's all burned: what have you done? Are you sure you want to keep on searching for the flame you're linked to? ...");
+			GUI.Label (new Rect (10, 20, BoxWidth - 10, BoxHeight), "Look all around! It's all melted: what have you done? Are you sure you want to keep on searching for the flame you're linked to? ...");
 			if (GUI.Button (new Rect (110, 90, 80, 50), "Yes!")) {
 				showGUI = false;
 				mainCamera.SetActive(true);

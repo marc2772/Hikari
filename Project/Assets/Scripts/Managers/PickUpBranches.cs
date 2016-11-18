@@ -87,7 +87,7 @@ public class PickUpBranches : Singleton<PickUpBranches>
 			do
 			{
 				spawnPoint.x = areaOfSpawn.position.x + Random.insideUnitCircle.x * 6 ;
-				spawnPoint.y = 1.2f; // avoid its being floating in mid air
+				spawnPoint.y = 1.1f; // avoid its being floating in mid air
 				spawnPoint.z = areaOfSpawn.position.z + Random.insideUnitCircle.y * 6;
 			} while (spawnPoints.Contains(spawnPoint)); // avoid its being on the same location as another branch
 			spawnPoints.Add(spawnPoint);
@@ -96,7 +96,7 @@ public class PickUpBranches : Singleton<PickUpBranches>
 		for (int i = 0; i < spawnPoints.Count; i++)
 		{
 			Vector3 spawn = spawnPoints[i];
-			Instantiate(branch, spawn, Quaternion.Euler(0, Random.Range(0, 360), 90));
+			Instantiate(branch, spawn, Quaternion.Euler(0, Random.Range(0, 360), 0));
 		}
 	}    
 

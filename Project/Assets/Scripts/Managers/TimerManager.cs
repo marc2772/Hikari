@@ -14,10 +14,7 @@ public class TimerManager : Singleton<TimerManager>
 	void Awake()
 	{
 		coroutine = UpdateTime();
-	}
 
-	void Start ()
-    {
 		time = 100;
 		timeBetweenUpdates = 1.0f;
 

@@ -1,13 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\RespawnAll.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\PickUpBranches.cs">
     <Files>
       <File FileName="Assets\Scripts\AddHealth.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SafeZone.cs" Line="23" Column="55" />
+      <File FileName="Assets\Scripts\SafeZone.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\WindPush.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\PickUpBranches.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Cinematic.cs" Line="34" Column="94" />
-      <File FileName="Assets\Scripts\WindDamage.cs" Line="10" Column="10" />
+      <File FileName="Assets\Scripts\Managers\PickUpBranches.cs" Line="48" Column="56" />
+      <File FileName="Assets\Scripts\Cinematic.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\WindDamage.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\RespawnAll.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>

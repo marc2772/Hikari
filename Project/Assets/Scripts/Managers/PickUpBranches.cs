@@ -25,7 +25,6 @@ public class PickUpBranches : Singleton<PickUpBranches>
 
 	void Start ()
 	{
-		Cursor.visible = !Cursor.visible;
 		player.GetComponent<Rigidbody> ().isKinematic = true;
 		foreach (var ice in iceFloating)
 			ice.SetActive (false);
@@ -40,6 +39,7 @@ public class PickUpBranches : Singleton<PickUpBranches>
 		if (showGUI)
 		{
 			CameraManager.Instance.ToggleCameraMoving(false);
+			Cursor.visible = true;
 			int BoxWidth = 300;
 			int BoxHeight = 150;
 			GUI.BeginGroup (new Rect ((Screen.width - BoxWidth) / 2, (Screen.height - BoxHeight) / 2, BoxWidth, BoxHeight));
@@ -49,7 +49,7 @@ public class PickUpBranches : Singleton<PickUpBranches>
 				showGUI = false;
 				accepted = true;
 				InstantiateObjects ();
-				Cursor.visible = !Cursor.visible;
+				Cursor.visible = false;
 				player.GetComponent<Rigidbody> ().isKinematic = false;
 				CameraManager.Instance.ToggleCameraMoving(true);
 			}         
@@ -59,6 +59,7 @@ public class PickUpBranches : Singleton<PickUpBranches>
 		else if (finished) 
 		{
 			CameraManager.Instance.ToggleCameraMoving(false);
+			Cursor.visible = true;
 			int BoxWidth = 300;
 			int BoxHeight = 150;
 			GUI.BeginGroup (new Rect ((Screen.width - BoxWidth) / 2, (Screen.height - BoxHeight) / 2, BoxWidth, BoxHeight));
@@ -68,7 +69,7 @@ public class PickUpBranches : Singleton<PickUpBranches>
 				finished = false;
 				foreach (var ice in iceFloating)
 					ice.SetActive (true);
-				Cursor.visible = !Cursor.visible;
+				Cursor.visible = false;
 				player.GetComponent<Rigidbody> ().isKinematic = false;
 				CameraManager.Instance.ToggleCameraMoving(true);
 				TimerManager.Instance.StartTimer ();

@@ -5,13 +5,14 @@ public class PlayerController : MonoBehaviour
 {
 	public float speed;
 	public float verticalSpeed;
-	bool grounded = false;
+	float distToGround;
 
 	Rigidbody rb;
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
+		distToGround = GetComponent<Collider>().bounds.extents.y;
 	}
 
 	void FixedUpdate()
@@ -47,18 +48,16 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	void Jump()
+	bool IsGrounded()
 	{
-		if(grounded)
-		{
-			rb.AddForce(Vector3.up * verticalSpeed, ForceMode.Impulse);
-			grounded = false;
-		}
+		return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.05f);
 	}
 
-	void OnCollisionEnter(Collision col)
+	void Jump()
 	{
-		if(transform.position.y - col.contacts[0].point.y > 0.12)
-			grounded = true;
+		if(IsGrounded())
+		{
+			rb.AddForce(Vector3.up * verticalSpeed, ForceMode.Impulse);
+		}
 	}
 }

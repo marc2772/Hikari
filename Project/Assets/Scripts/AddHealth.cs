@@ -13,8 +13,8 @@ public class AddHealth : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         { 
 			if(SceneManager.GetActiveScene().name == "Level01")
-				if (PickUpBranches.Instance.accepted && this.name == "Twig(Clone)")
-					PickUpBranches.Instance.countBranch++;
+				if (TutorialManager.Instance.accepted && this.name == "Twig(Clone)")
+					TutorialManager.Instance.countBranch++;
 			TimerManager.Instance.AddHealth(additionalHealth);
 			gameObject.SetActive(false); 
         }

@@ -53,10 +53,10 @@
      <Compile Include="Assets\Scripts\DieInWater.cs" />
      <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />
      <Compile Include="Assets\Scripts\Managers\MenuManager.cs" />
-     <Compile Include="Assets\Scripts\Managers\PickUpBranches.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerStateManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
      <Compile Include="Assets\Scripts\Managers\TimerManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\TutorialManager.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\NextLevel.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />

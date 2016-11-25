@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class PickUpBranches : Singleton<PickUpBranches>
+public class TutorialManager : Singleton<TutorialManager>
 {
 	public GameObject branch;
 	private const int numberOfBranches = 5;

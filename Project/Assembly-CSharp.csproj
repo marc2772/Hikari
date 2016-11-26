@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\BridgeFall.cs" />
      <Compile Include="Assets\Scripts\Cinematic.cs" />
      <Compile Include="Assets\Scripts\DieInWater.cs" />
+     <Compile Include="Assets\Scripts\ForestCreator.cs" />
      <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />
      <Compile Include="Assets\Scripts\Managers\MenuManager.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerStateManager.cs" />

@@ -9,8 +9,11 @@ public class PlayerController : MonoBehaviour
 
 	Rigidbody rb;
 
+	private Animator anim;
+
 	void Start()
 	{
+		anim = GetComponent<Animator> ();
 		rb = GetComponent<Rigidbody>();
 		distToGround = GetComponent<Collider>().bounds.extents.y;
 	}
@@ -33,8 +36,11 @@ public class PlayerController : MonoBehaviour
 
 			Vector3 move = moveX + moveZ;
 
+			anim.SetBool ("isWalking", true);
 			rb.AddForce(new Vector3 (move.x, rb.velocity.y, move.z), ForceMode.Acceleration);
 		}
+		else
+			anim.SetBool ("isWalking", false);
 
 		rb.freezeRotation = true;
 	}
@@ -57,7 +63,10 @@ public class PlayerController : MonoBehaviour
 	{
 		if(IsGrounded())
 		{
+			anim.SetBool ("isJumping", true);
 			rb.AddForce(Vector3.up * verticalSpeed, ForceMode.Impulse);
 		}
+		else
+			anim.SetBool ("isJumping", false);
 	}
 }

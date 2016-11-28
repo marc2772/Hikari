@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
 	void Start()
 	{
-		anim = GetComponent<Animator> ();
+		anim = GetComponentInChildren<Animator>();
 		rb = GetComponent<Rigidbody>();
 		distToGround = GetComponent<Collider>().bounds.extents.y;
 	}
@@ -63,10 +63,8 @@ public class PlayerController : MonoBehaviour
 	{
 		if(IsGrounded())
 		{
-			anim.SetBool ("isJumping", true);
+			anim.SetTrigger("jump");
 			rb.AddForce(Vector3.up * verticalSpeed, ForceMode.Impulse);
 		}
-		else
-			anim.SetBool ("isJumping", false);
 	}
 }

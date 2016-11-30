@@ -61,7 +61,7 @@ public class CameraManager : Singleton<CameraManager>
 			RaycastHit hit;
 			if(Physics.Linecast(player.transform.position + direction * 0.3f, transform.position, out hit))
 			{
-				distance -= 0.05f;
+				distance -= 0.08f;
 			}
 			else if(Physics.Linecast(player.transform.position + direction * 0.3f, transform.position + direction * 0.5f, out hit))
 			{
@@ -69,7 +69,7 @@ public class CameraManager : Singleton<CameraManager>
 			}
 			else if(distance < distanceBefore)
 			{
-				distance += 0.05f;
+				distance += 0.08f;
 			}
 			else
 			{

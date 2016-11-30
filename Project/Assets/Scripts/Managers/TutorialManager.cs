@@ -114,7 +114,7 @@ public class TutorialManager : Singleton<TutorialManager>
 			int BoxWidth = 220;
 			int BoxHeight = 100;
 			GUI.BeginGroup(new Rect(0, (Screen.height - BoxHeight) / 2, BoxWidth, BoxHeight));
-			GUI.Box(new Rect(0, 0, BoxWidth, BoxHeight), "Don't loose your breath!");
+			GUI.Box(new Rect(0, 0, BoxWidth, BoxHeight), "Don't lose your breath!");
 			if (countBranch > 0)
 				GUI.Label(new Rect(20, 60, BoxWidth - 20, 20), "Branches : " + countBranch.ToString() + " / " + numberOfBranches);
 			else

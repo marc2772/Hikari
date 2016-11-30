@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class TimerManager : Singleton<TimerManager>
@@ -54,10 +55,26 @@ public class TimerManager : Singleton<TimerManager>
 
 	public void RestartTimer()
 	{
-		time = 100;
+		if(SceneManager.GetActiveScene().name == "Level01")
+		{
+			if(TutorialManager.Instance.accepted)
+				time = 75 + TutorialManager.Instance.countBranch * 5;
+			else
+				time = 100;
+		}
+		else
+			time = 100;
+		
 		currentHealth.fillAmount = time / 100.0f;
 		timeText.text = time.ToString("00") + " % ";
-		StartTimer();
+
+		if(SceneManager.GetActiveScene().name == "Level01")
+		{
+			if(!TutorialManager.Instance.accepted)
+				StartTimer();
+		}
+		else
+			StartTimer();
 	}
 
 	public void AddHealth(int health)

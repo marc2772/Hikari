@@ -33,6 +33,7 @@ public class NextLevel : MonoBehaviour
 			yield return new WaitForSeconds(0.08f);
 		}
 		backgroundMusic.volume = 0.0f;
+		PlayerPrefs.SetInt("Level", 2); //to save the level we can select on the menu
 		SceneManager.LoadScene("Level02");
 	}
 }

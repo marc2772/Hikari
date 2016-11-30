@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Menu : MonoBehaviour
@@ -9,6 +10,17 @@ public class Menu : MonoBehaviour
 	public GameObject SettingsMenu;
 	public GameObject InstructionsMenu;
 	public GameObject ExitMenu;
+
+	public GameObject level2Button;
+
+	void Start()
+	{
+		int level = PlayerPrefs.GetInt("Level", 1);
+		if(level == 2)
+			level2Button.GetComponent<Button>().interactable = true;
+		
+		Main();
+	}
 
 	public void Main()
 	{

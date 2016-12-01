@@ -11,13 +11,18 @@ public class Menu : MonoBehaviour
 	public GameObject InstructionsMenu;
 	public GameObject ExitMenu;
 
-	public GameObject level2Button;
+	public GameObject deleteAllDataPopupPrefab;
+
+	public GameObject level1Image;
+	public GameObject level2Image;
 
 	void Start()
 	{
-		int level = PlayerPrefs.GetInt("Level", 1);
-		if(level == 2)
-			level2Button.GetComponent<Button>().interactable = true;
+		int level = PlayerPrefs.GetInt("Level", 0);
+		if(level >= 1)
+			level1Image.SetActive(true);
+		if(level >= 2)
+			level2Image.SetActive(true);
 		
 		Main();
 	}
@@ -71,6 +76,12 @@ public class Menu : MonoBehaviour
 	public void ExitGame()
 	{
 		Application.Quit();
+	}
+
+	public void DeleteAllData()
+	{
+		PlayerPrefs.DeleteAll();
+		Instantiate(deleteAllDataPopupPrefab, SettingsMenu.transform.Find("Panel"), false);
 	}
 
 	void Update()

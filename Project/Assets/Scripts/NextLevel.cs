@@ -27,13 +27,13 @@ public class NextLevel : MonoBehaviour
 			backgroundMusic.volume = volume;
 
 			Color color = blackImage.color;
-			color.a += Time.deltaTime;
+			color.a += 2*Time.deltaTime;
 			blackImage.color = color;
 
 			yield return new WaitForSeconds(0.08f);
 		}
 		backgroundMusic.volume = 0.0f;
-		PlayerPrefs.SetInt("Level", 2); //to save the level we can select on the menu
+		PlayerPrefs.SetInt("Level", 1); //to save the level as completed
 		SceneManager.LoadScene("Level02");
 	}
 }

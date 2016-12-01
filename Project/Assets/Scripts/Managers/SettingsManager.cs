@@ -8,9 +8,6 @@ public class SettingsManager : Singleton<SettingsManager>
 
 	void Awake()
 	{
-		//Uncomment to delete all preferences
-		//PlayerPrefs.DeleteAll();
-
 		//Make this object permanent
 		DontDestroyOnLoad(gameObject);
 

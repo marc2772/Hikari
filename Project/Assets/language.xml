@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<languages>
+	<English>
+     	<string name="Play">Play</string>
+		<string name="Settings">Settings</string>
+		<string name="Instructions">Instructions</string>
+		<string name="Exit">Exit</string>
+	</English>
+
+	<Français>
+     	<string name="Play">Jouer</string>
+		<string name="Settings">Parametres</string>
+		<string name="Instructions">Instructions</string>
+		<string name="Exit">Quitter</string>
+	</Français>
+</languages>

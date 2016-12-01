@@ -23,7 +23,8 @@ public class Menu : MonoBehaviour
 			level1Image.SetActive(true);
 		if(level >= 2)
 			level2Image.SetActive(true);
-		
+
+		UpdateAllStrings();
 		Main();
 	}
 
@@ -82,6 +83,27 @@ public class Menu : MonoBehaviour
 	{
 		PlayerPrefs.DeleteAll();
 		Instantiate(deleteAllDataPopupPrefab, SettingsMenu.transform.Find("Panel"), false);
+	}
+
+	public void ChangeLanguage()
+	{
+		string lang = SettingsMenu.transform.Find("Panel/Dropdown").GetComponentInChildren<Text>().text;
+		SettingsManager.Instance.SetLanguage(lang);
+
+		UpdateAllStrings();
+	}
+
+	public void UpdateAllStrings()
+	{
+		MainMenu.transform.Find("Play").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("Play");
+		MainMenu.transform.Find("Settings").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("Settings");
+		MainMenu.transform.Find("Instructions").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("Instructions");
+		MainMenu.transform.Find("Exit").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("Exit");
+
+		/*PlayMenu;
+		SettingsMenu;
+		InstructionsMenu;
+		ExitMenu;*/
 	}
 
 	void Update()

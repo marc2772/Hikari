@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
+using System.IO;
 using System.Collections;
 
 public class SettingsManager : Singleton<SettingsManager>
 {
+	Language language;
+	string currentLanguage;
+
 	bool Mute;
 	float MouseSensitivity;
 
@@ -10,6 +14,11 @@ public class SettingsManager : Singleton<SettingsManager>
 	{
 		//Make this object permanent
 		DontDestroyOnLoad(gameObject);
+
+		//Load the language database
+		currentLanguage = PlayerPrefs.GetString("Language", "English");
+		Debug.Log(currentLanguage);
+		language = new Language(Path.Combine(Application.dataPath, "language.xml"), currentLanguage);
 
 		//Get settings
 		Mute = PlayerPrefs.GetInt("Mute", 0) == 1 ? true : false;
@@ -22,25 +31,37 @@ public class SettingsManager : Singleton<SettingsManager>
 			Cursor.lockState = CursorLockMode.Confined;
 	}
 
-	void SetMute(bool mute)
+	public void SetMute(bool mute)
 	{
 		Mute = mute;
 		PlayerPrefs.SetInt("Mute", Mute ? 1 : 0);
 	}
 
-	bool GetMute()
+	public bool GetMute()
 	{
 		return Mute;
 	}
 
-	void SetMouseSensitivity(float sens)
+	public void SetMouseSensitivity(float sens)
 	{
 		MouseSensitivity = sens;
 		PlayerPrefs.SetFloat("MouseSensitivity", MouseSensitivity);
 	}
 
-	float GetMouseSensitivity()
+	public float GetMouseSensitivity()
 	{
 		return MouseSensitivity;
+	}
+
+	public void SetLanguage(string lang)
+	{
+		language.setLanguage(Path.Combine(Application.dataPath, "language.xml"), lang);
+		currentLanguage = lang;
+		PlayerPrefs.SetString("Language", lang);
+	}
+
+	public string GetString(string name)
+	{
+		return language.getString(name);
 	}
 }

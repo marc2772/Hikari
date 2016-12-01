@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Cinematic.cs" />
      <Compile Include="Assets\Scripts\DieInWater.cs" />
      <Compile Include="Assets\Scripts\ForestCreator.cs" />
+     <Compile Include="Assets\Scripts\Language.cs" />
      <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />
      <Compile Include="Assets\Scripts\Managers\MenuManager.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerStateManager.cs" />
@@ -69,6 +70,7 @@
      <Compile Include="Assets\Scripts\SnowballSpawn.cs" />
      <Compile Include="Assets\Scripts\WindDamage.cs" />
      <Compile Include="Assets\Scripts\WindPush.cs" />
+     <None Include="Assets\language.xml" />
      <None Include="Assets\Prefabs\Water\Shaders\FXWaterBasic.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

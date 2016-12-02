@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\AddHealth.cs" />
      <Compile Include="Assets\Scripts\BobbingInWater.cs" />
      <Compile Include="Assets\Scripts\BridgeFall.cs" />
+     <Compile Include="Assets\Scripts\BurnOnPassage.cs" />
      <Compile Include="Assets\Scripts\Cinematic.cs" />
      <Compile Include="Assets\Scripts\DieInWater.cs" />
      <Compile Include="Assets\Scripts\ForestCreator.cs" />

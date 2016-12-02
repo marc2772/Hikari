@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: c5b73f413d9d7694180b81a327cb522e
-timeCreated: 1477923824
+timeCreated: 1480710466
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - plouf: {fileID: 8300000, guid: 5cd799aebedcaf642b43bbe39fb6b132, type: 3}
+  - alive: {fileID: 8300000, guid: 17a21145857de33448a9984e6c63b5cd, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

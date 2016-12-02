@@ -3,6 +3,9 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+	public AudioClip jump1;
+	public AudioClip jump2;
+
 	public float speed;
 	public float verticalSpeed;
 	float distToGround;
@@ -64,6 +67,10 @@ public class PlayerController : MonoBehaviour
 		if(IsGrounded())
 		{
 			anim.SetTrigger("jump");
+			if(Random.Range(0,2) == 0)
+				GetComponent<AudioSource>().PlayOneShot(jump1, 0.5f);
+			else
+				GetComponent<AudioSource>().PlayOneShot(jump2, 0.5f);
 			rb.AddForce(Vector3.up * verticalSpeed, ForceMode.Impulse);
 		}
 	}

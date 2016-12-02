@@ -15,6 +15,7 @@ public class AddHealth : MonoBehaviour
 			if(SceneManager.GetActiveScene().name == "Level01")
 				if (TutorialManager.Instance.accepted && this.name == "Twig(Clone)")
 					TutorialManager.Instance.countBranch++;
+			Camera.main.GetComponent<AudioSource> ().Play ();
 			TimerManager.Instance.AddHealth(additionalHealth);
 			gameObject.SetActive(false); 
         }

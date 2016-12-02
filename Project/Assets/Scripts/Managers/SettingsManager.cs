@@ -17,7 +17,6 @@ public class SettingsManager : Singleton<SettingsManager>
 
 		//Load the language database
 		currentLanguage = PlayerPrefs.GetString("Language", "English");
-		Debug.Log(currentLanguage);
 		language = new Language(Path.Combine(Application.dataPath, "language.xml"), currentLanguage);
 
 		//Get settings

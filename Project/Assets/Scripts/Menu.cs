@@ -5,6 +5,8 @@ using System.Collections;
 
 public class Menu : MonoBehaviour
 {
+	public MenuCameraAnimation cam;
+
 	public GameObject MainMenu;
 	public GameObject PlayMenu;
 	public GameObject SettingsMenu;
@@ -25,7 +27,12 @@ public class Menu : MonoBehaviour
 			level2Image.SetActive(true);
 
 		UpdateAllStrings();
-		Main();
+
+		PlayMenu.SetActive(false);
+		SettingsMenu.SetActive(false);
+		InstructionsMenu.SetActive(false);
+		ExitMenu.SetActive(false);
+		MainMenu.SetActive(true);
 	}
 
 	public void Main()
@@ -33,17 +40,40 @@ public class Menu : MonoBehaviour
 		//To lock the cursor within the window
 		Cursor.lockState = CursorLockMode.Confined;
 
-		MainMenu.SetActive(true);
-		PlayMenu.SetActive(false);
-		SettingsMenu.SetActive(false);
-		InstructionsMenu.SetActive(false);
-		ExitMenu.SetActive(false);
-	}
+		if(PlayMenu.activeSelf)
+		{
+			if(!cam.IsPlaying())
+			{
+				PlayMenu.SetActive(false);
+				cam.PlayBackwards();
+			}
+		}
+		else if(SettingsMenu.activeSelf)
+		{
+			if(!cam.IsPlaying())
+			{
+				SettingsMenu.SetActive(false);
+				cam.SettingsBackwards();
+			}
+		}
+		else if(InstructionsMenu.activeSelf)
+		{
+			if(!cam.IsPlaying())
+			{
+				InstructionsMenu.SetActive(false);
+				cam.InstructionsBackwards();
+			}
+		}
+		else if(ExitMenu.activeSelf)
+		{
+			if(!cam.IsPlaying())
+			{
+				ExitMenu.SetActive(false);
+				cam.ExitBackwards();
+			}
+		}
 
-	public void Play()
-	{
-		MainMenu.SetActive(false);
-		PlayMenu.SetActive(true);
+		MainMenu.SetActive(true);
 	}
 
 	public void Level01()
@@ -56,22 +86,64 @@ public class Menu : MonoBehaviour
 		SceneManager.LoadScene("Level02");
 	}
 
+	public void Play()
+	{
+		StartCoroutine(PlayCoroutine());
+	}
+
+	IEnumerator PlayCoroutine()
+	{
+		if(!cam.IsPlaying())
+		{
+			cam.Play();
+			yield return new WaitForSeconds(0.7f);
+			PlayMenu.SetActive(true);
+		}
+	}
+
 	public void Settings()
 	{
-		MainMenu.SetActive(false);
-		SettingsMenu.SetActive(true);
+		StartCoroutine(SettingsCoroutine());
+	}
+
+	IEnumerator SettingsCoroutine()
+	{
+		if(!cam.IsPlaying())
+		{
+			cam.Settings();
+			yield return new WaitForSeconds(1.7f);
+			SettingsMenu.SetActive(true);
+		}
 	}
 
 	public void Instructions()
 	{
-		MainMenu.SetActive(false);
-		InstructionsMenu.SetActive(true);
+		StartCoroutine(InstructionsCoroutine());
+	}
+
+	IEnumerator InstructionsCoroutine()
+	{
+		if(!cam.IsPlaying())
+		{
+			cam.Instructions();
+			yield return new WaitForSeconds(0.7f);
+			InstructionsMenu.SetActive(true);
+		}
 	}
 
 	public void Exit()
 	{
-		MainMenu.SetActive(false);
-		ExitMenu.SetActive(true);
+		StartCoroutine(ExitCoroutine());
+	}
+
+	IEnumerator ExitCoroutine()
+	{
+		if(!cam.IsPlaying())
+		{
+			cam.Exit();
+			yield return new WaitForSeconds(0.7f);
+			ExitMenu.SetActive(true);
+		}
 	}
 
 	public void ExitGame()
@@ -110,7 +182,10 @@ public class Menu : MonoBehaviour
 	{
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
-			if(MainMenu.activeSelf)
+			if(!PlayMenu.activeSelf &&
+				!SettingsMenu.activeSelf &&
+				!InstructionsMenu.activeSelf &&
+				!ExitMenu.activeSelf)
 				Exit();
 			else
 				Main();

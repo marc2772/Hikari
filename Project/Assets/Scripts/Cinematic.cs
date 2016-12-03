@@ -3,14 +3,18 @@ using System.Collections;
 
 public class Cinematic : MonoBehaviour
 {
-
 	public GameObject mainCamera;
 	public GameObject cinematicCamera;
 
-	float rotationTime = 10.0f;
-	GameObject player;
-	float currentTime = 0.0f;
-	bool showGUI = false;
+	private GameObject player;
+	private bool showGUI = false;
+	private Animation anim;
+	private bool animationStarted = false;
+
+	void Awake ()
+	{
+		anim = cinematicCamera.GetComponent<Animation> ();
+	}
 
 	void OnTriggerEnter(Collider collider)
 	{
@@ -29,14 +33,9 @@ public class Cinematic : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (cinematicCamera.activeSelf == true && currentTime <= rotationTime) 
-		{
-			cinematicCamera.transform.RotateAround (cinematicCamera.transform.position, Vector3.up, 300.0f * Time.deltaTime / rotationTime);
-			currentTime += Time.deltaTime;
-			if (currentTime >= rotationTime) {
-				showGUI = true;
-				Cursor.visible = !Cursor.visible;
-			}
+		if (cinematicCamera.activeSelf == true && !animationStarted) {
+			StartCoroutine ("PlayAnimation");
+			animationStarted = true;
 		}
 	}
 
@@ -57,5 +56,16 @@ public class Cinematic : MonoBehaviour
 			}         
 			GUI.EndGroup ();
 		}
+	}
+
+	IEnumerator PlayAnimation ()
+	{
+		anim ["CameraCinematicLevel01"].speed = 0.1f;
+		anim.Play();
+
+		yield return new WaitForSeconds(2.0f);
+
+		showGUI = true;
+		Cursor.visible = true;
 	}
 }

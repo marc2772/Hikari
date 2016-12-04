@@ -56,6 +56,7 @@ public class TimerManager : Singleton<TimerManager>
 
 	public void RestartTimer()
 	{
+		ChangeTimeBetweenUpdates(1.0f);
 		if(SceneManager.GetActiveScene().name == "Level01")
 		{
 			if(TutorialManager.Instance.accepted)

@@ -41,6 +41,7 @@ public class CameraManager : Singleton<CameraManager>
 	public void ToggleCameraMoving(bool moving)
 	{
 		cameraMoving = moving;
+		player.GetComponent<Rigidbody> ().isKinematic = !moving;
 	}
 
 	void LateUpdate() 

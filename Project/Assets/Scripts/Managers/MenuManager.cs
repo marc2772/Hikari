@@ -16,6 +16,7 @@ public class MenuManager : Singleton<MenuManager>
 	{
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
+			//If we're not dead
 			if(!deathMenu.activeSelf)
 			{
 				escapeMenu.SetActive(!escapeMenu.activeSelf);

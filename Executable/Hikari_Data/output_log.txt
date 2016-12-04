@@ -14,36 +14,15 @@ Platform assembly: D:\GitHub\Hikari\Executable\Hikari_Data\Managed\UnityEngine.U
 Loading D:\GitHub\Hikari\Executable\Hikari_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: D:\GitHub\Hikari\Executable\Hikari_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading D:\GitHub\Hikari\Executable\Hikari_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.039 seconds
+- Completed reload, in  0.033 seconds
 Platform assembly: D:\GitHub\Hikari\Executable\Hikari_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\GitHub\Hikari\Executable\Hikari_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 3280x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.674553 ms
+UnloadTime: 0.521014 ms
 Platform assembly: D:\GitHub\Hikari\Executable\Hikari_Data\Managed\System.Xml.dll (this message is harmless)
-IsolatedStorageException: Could not find file "D:\GitHub\Hikari\Executable\Hikari_Data\language.xml".
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
-  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
-  at System.Xml.XmlUrlResolver.GetEntity (System.Uri absoluteUri, System.String role, System.Type ofObjectToReturn) [0x00000] in <filename unknown>:0 
-  at Mono.Xml2.XmlTextReader.GetStreamFromUrl (System.String url, System.String& absoluteUriString) [0x00000] in <filename unknown>:0 
-  at Mono.Xml2.XmlTextReader..ctor (System.String url, System.Xml.XmlNameTable nt) [0x00000] in <filename unknown>:0 
-  at System.Xml.XmlTextReader..ctor (System.String url, System.Xml.XmlNameTable nt) [0x00000] in <filename unknown>:0 
-  at System.Xml.XmlDocument.Load (System.String filename) [0x00000] in <filename unknown>:0 
-  at Language.setLanguage (System.String path, System.String language) [0x00000] in <filename unknown>:0 
-  at Language..ctor (System.String path, System.String language) [0x00000] in <filename unknown>:0 
-  at SettingsManager.Awake () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at SettingsManager.GetString (System.String name) [0x00000] in <filename unknown>:0 
-  at Menu.UpdateAllStrings () [0x00000] in <filename unknown>:0 
-  at Menu.Start () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 2ba4 -> priority: 1 
-  Thread -> id: 292c -> priority: 1 
+  Thread -> id: 1e70 -> priority: 1 
+  Thread -> id: 2818 -> priority: 1 

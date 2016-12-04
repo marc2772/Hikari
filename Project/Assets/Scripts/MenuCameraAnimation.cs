@@ -29,48 +29,48 @@ public class MenuCameraAnimation : MonoBehaviour
 	public void Play()
 	{
 		animator.Play("CameraPlay");
-		timer = 0.7f;
+		timer = 0.9f;
 	}
 
 	public void PlayBackwards()
 	{
 		animator.Play("CameraPlayToMain");
-		timer = 0.7f;
+		timer = 0.9f;
 	}
 
 	public void Settings()
 	{
 		animator.Play("CameraSettings");
-		timer = 1.7f;
+		timer = 1.9f;
 	}
 
 	public void SettingsBackwards()
 	{
 		animator.Play("CameraSettingsToMain");
-		timer = 1.7f;
+		timer = 1.9f;
 	}
 
 	public void Instructions()
 	{
 		animator.Play("CameraInstructions");
-		timer = 0.7f;
+		timer = 0.9f;
 	}
 
 	public void InstructionsBackwards()
 	{
 		animator.Play("CameraInstructionsToMain");
-		timer = 0.7f;
+		timer = 0.9f;
 	}
 
 	public void Exit()
 	{
 		animator.Play("CameraExit");
-		timer = 0.7f;
+		timer = 0.9f;
 	}
 
 	public void ExitBackwards()
 	{
 		animator.Play("CameraExitToMain");
-		timer = 0.7f;
+		timer = 0.9f;
 	}
 }

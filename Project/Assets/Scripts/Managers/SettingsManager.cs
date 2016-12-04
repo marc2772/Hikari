@@ -17,7 +17,7 @@ public class SettingsManager : Singleton<SettingsManager>
 
 		//Load the language database
 		currentLanguage = PlayerPrefs.GetString("Language", "English");
-		language = new Language(Path.Combine(Application.dataPath, "language.xml"), currentLanguage);
+		language = new Language("language", currentLanguage);
 
 		//Get settings
 		Mute = PlayerPrefs.GetInt("Mute", 0) == 1 ? true : false;
@@ -57,6 +57,11 @@ public class SettingsManager : Singleton<SettingsManager>
 		language.setLanguage(Path.Combine(Application.dataPath, "language.xml"), lang);
 		currentLanguage = lang;
 		PlayerPrefs.SetString("Language", lang);
+	}
+
+	public string GetLanguage()
+	{
+		return currentLanguage;
 	}
 
 	public string GetString(string name)

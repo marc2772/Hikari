@@ -34,7 +34,7 @@ public class Menu : MonoBehaviour
 		ExitMenu.SetActive(false);
 		MainMenu.SetActive(true);
 	}
-
+		
 	public void Main()
 	{
 		//To lock the cursor within the window
@@ -74,6 +74,7 @@ public class Menu : MonoBehaviour
 		}
 
 		MainMenu.SetActive(true);
+		MainMenuButtonAble();
 	}
 
 	public void Level01()
@@ -95,8 +96,9 @@ public class Menu : MonoBehaviour
 	{
 		if(!cam.IsPlaying())
 		{
+			MainMenuButtonDisable();
 			cam.Play();
-			yield return new WaitForSeconds(0.7f);
+			yield return new WaitForSeconds(0.9f);
 			PlayMenu.SetActive(true);
 		}
 	}
@@ -110,8 +112,9 @@ public class Menu : MonoBehaviour
 	{
 		if(!cam.IsPlaying())
 		{
+			MainMenuButtonDisable();
 			cam.Settings();
-			yield return new WaitForSeconds(1.7f);
+			yield return new WaitForSeconds(1.9f);
 			SettingsMenu.SetActive(true);
 		}
 	}
@@ -125,8 +128,9 @@ public class Menu : MonoBehaviour
 	{
 		if(!cam.IsPlaying())
 		{
+			MainMenuButtonDisable();
 			cam.Instructions();
-			yield return new WaitForSeconds(0.7f);
+			yield return new WaitForSeconds(0.9f);
 			InstructionsMenu.SetActive(true);
 		}
 	}
@@ -140,8 +144,9 @@ public class Menu : MonoBehaviour
 	{
 		if(!cam.IsPlaying())
 		{
+			MainMenuButtonDisable();
 			cam.Exit();
-			yield return new WaitForSeconds(0.7f);
+			yield return new WaitForSeconds(0.9f);
 			ExitMenu.SetActive(true);
 		}
 	}
@@ -154,15 +159,22 @@ public class Menu : MonoBehaviour
 	public void DeleteAllData()
 	{
 		PlayerPrefs.DeleteAll();
-		Instantiate(deleteAllDataPopupPrefab, SettingsMenu.transform.Find("Panel"), false);
+		GameObject popup = (GameObject)Instantiate(deleteAllDataPopupPrefab, SettingsMenu.transform.Find("Panel"), false);
+		popup.GetComponent<Text>().text = SettingsManager.Instance.GetString("DataCleared");
+		level1Image.SetActive(false);
+		level2Image.SetActive(false);
+		ChangeLanguage();
 	}
 
 	public void ChangeLanguage()
 	{
-		string lang = SettingsMenu.transform.Find("Panel/Dropdown").GetComponentInChildren<Text>().text;
-		SettingsManager.Instance.SetLanguage(lang);
+		if(SettingsMenu.activeSelf)
+		{
+			string lang = SettingsMenu.transform.Find("Panel/Dropdown").GetComponentInChildren<Text>().text;
+			SettingsManager.Instance.SetLanguage(lang);
 
-		UpdateAllStrings();
+			UpdateAllStrings();
+		}
 	}
 
 	public void UpdateAllStrings()
@@ -172,10 +184,40 @@ public class Menu : MonoBehaviour
 		MainMenu.transform.Find("Instructions").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("Instructions");
 		MainMenu.transform.Find("Exit").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("Exit");
 
-		/*PlayMenu;
-		SettingsMenu;
-		InstructionsMenu;
-		ExitMenu;*/
+		Transform panel = PlayMenu.transform.Find("Panel");
+		panel.Find("Title").GetComponent<Text>().text = SettingsManager.Instance.GetString("Play");
+		panel.Find("Level01").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("Level01");
+		panel.Find("Level02").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("Level02");
+
+		panel = SettingsMenu.transform.Find("Panel");
+		panel.Find("Title").GetComponent<Text>().text = SettingsManager.Instance.GetString("Settings");
+		panel.Find("Audio").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("Audio");
+		panel.Find("Mouse Sensitivity Text").GetComponent<Text>().text = SettingsManager.Instance.GetString("MouseSensitivity");
+		panel.Find("DeleteAllData").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("ClearAllData");
+		panel.Find("Dropdown").GetComponent<Dropdown>().value = SettingsManager.Instance.GetLanguage() == "English" ? 0 : 1;
+
+		panel = InstructionsMenu.transform.Find("Panel");
+		panel.Find("Title").GetComponent<Text>().text = SettingsManager.Instance.GetString("Instructions");
+		panel.Find("Text").GetComponent<Text>().text = SettingsManager.Instance.GetString("InstructionsText");
+
+		panel = ExitMenu.transform.Find("Panel");
+		panel.Find("Title").GetComponent<Text>().text = SettingsManager.Instance.GetString("AreYouSure");
+		panel.Find("Yes").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("Yes");
+		panel.Find("No").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("No");
+	}
+
+	void MainMenuButtonDisable()
+	{
+		Button[] buttons = MainMenu.GetComponentsInChildren<Button>();
+		foreach(Button b in buttons)
+			b.interactable = false;
+	}
+
+	void MainMenuButtonAble()
+	{
+		Button[] buttons = MainMenu.GetComponentsInChildren<Button>();
+		foreach(Button b in buttons)
+			b.interactable = true;
 	}
 
 	void Update()

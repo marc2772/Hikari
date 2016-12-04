@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<languages>
+	<English>
+     	<string name="Play">Play</string>
+		<string name="LevelSelection">Level Selection</string>
+		<string name="Level01">Level 1</string>
+		<string name="Level02">Level 2</string>
+
+		<string name="Settings">Settings</string>
+		<string name="MouseSensitivity">Mouse sensitivity</string>
+		<string name="Audio">Audio</string>
+		<string name="ClearAllData">Clear all data</string>
+		<string name="DataCleared">Data cleared</string>
+
+		<string name="Instructions">Instructions</string>
+		<string name="InstructionsText">Long long instructions</string>
+
+		<string name="Exit">Exit</string>
+		<string name="AreYouSure">Are you sure</string>
+		<string name="Yes">Yes</string>
+		<string name="No">No</string>
+	</English>
+
+	<Français>
+     	<string name="Play">Jouer</string>
+		<string name="LevelSelection">Selection du niveau</string>
+		<string name="Level01">Niveau 1</string>
+		<string name="Level02">Niveau 2</string>
+
+		<string name="Settings">Parametres</string>
+		<string name="MouseSensitivity">Sensibilité de la souris</string>
+		<string name="Audio">Audio</string>
+		<string name="ClearAllData">Effacer toutes les données</string>
+		<string name="DataCleared">Données effacées</string>
+
+		<string name="Instructions">Instructions</string>
+		<string name="InstructionsText">Instructions vraiment longues</string>
+
+		<string name="Exit">Quitter</string>
+		<string name="AreYouSure">Etes-vous sur</string>
+		<string name="Yes">Oui</string>
+		<string name="No">Non</string>
+	</Français>
+</languages>

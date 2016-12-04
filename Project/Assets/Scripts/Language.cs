@@ -8,35 +8,26 @@ using UnityEngine;
 public class Language
 {
     private Hashtable Strings;
- 
-    /*
-    Initialize Lang class
-    path = path to XML resource example:  Path.Combine(Application.dataPath, "lang.xml")
-    language = language to use example:  "English"
-    web = boolean indicating if resource is local or on-line example:  true if on-line, false if local
-    */
+	private TextAsset text;
+
     public Language(string path, string language)
 	{
+		text = Resources.Load(path) as TextAsset;
 		setLanguage(path, language);
     }
  
-    /*
-    Use the setLanguage function to swap languages after the Lang class has been initialized.
-    This function is called automatically when the Lang class is initialized.
-    path = path to XML resource example:  Path.Combine(Application.dataPath, "lang.xml")
-    language = language to use example:  "English"
-    */
     public void setLanguage(string path, string language)
 	{
         var xml = new XmlDocument();
-        xml.Load(path);
+		xml.LoadXml(text.text);
      	
         Strings = new Hashtable();
         var element = xml.DocumentElement[language];
         if (element != null)
 		{
             var elemEnum = element.GetEnumerator();
-            while (elemEnum.MoveNext()) {
+            while (elemEnum.MoveNext())
+			{
                 var xmlItem = (XmlElement)elemEnum.Current;
                 Strings.Add(xmlItem.GetAttribute("name"), xmlItem.InnerText);
             }
@@ -47,10 +38,6 @@ public class Language
         }
     }
  
-    /*
-    Access strings in the currently selected language by supplying this getString function with
-    the name identifier for the string used in the XML resource.
-    */
     public string getString(string name)
 	{
         if (!Strings.ContainsKey(name))

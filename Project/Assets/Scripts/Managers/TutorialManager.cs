@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TutorialManager : Singleton<TutorialManager>
 {
+	public GameObject questWindow;
+
 	public GameObject branch;
 	private const int numberOfBranches = 5;
 	[Range(0, numberOfBranches)]
@@ -38,6 +40,10 @@ public class TutorialManager : Singleton<TutorialManager>
 	{
 		if (showGUI)
 		{
+			questWindow.SetActive (true);
+			questWindow.Find ("Title").GetComponent<Text> ().text = "\" Hold your breath! \"";
+			questWindow.Find ("Description").GetComponent<Text> ().text = "You're holding you're beath: it's so cold and windy out there, maybe you should collect some branches so that you can breath again before leaving the deserted camp ...";
+			questWindow.Find ("Ok").GetComponentInChildren<Text> ().text = "Ok";
 			CameraManager.Instance.ToggleCameraMoving(false);
 			Cursor.visible = true;
 			int BoxWidth = 300;
@@ -121,5 +127,26 @@ public class TutorialManager : Singleton<TutorialManager>
 				GUI.Label(new Rect(20, 60, BoxWidth - 20, 20), "Collect branches ...");
 			GUI.EndGroup();
 		}        
+	}
+
+	void OkButton ()
+	{
+		showGUI = false;
+		accepted = true;
+		InstantiateObjects ();
+		Cursor.visible = false;
+		player.GetComponent<Rigidbody> ().isKinematic = false;
+		CameraManager.Instance.ToggleCameraMoving(true);
+	}
+
+	void LetsGoButton ()
+	{
+		finished = false;
+		foreach (var ice in iceFloating)
+			ice.SetActive (true);
+		Cursor.visible = false;
+		player.GetComponent<Rigidbody> ().isKinematic = false;
+		CameraManager.Instance.ToggleCameraMoving(true);
+		TimerManager.Instance.StartTimer ();
 	}
 }

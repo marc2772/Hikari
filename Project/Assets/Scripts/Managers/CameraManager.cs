@@ -21,9 +21,15 @@ public class CameraManager : Singleton<CameraManager>
 
 	bool cameraMoving; //True if we can move the camera with the mouse
 
+	Animator animator;
+	float timer; //The time before the animation ends
+
 	void Awake()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
+		cameraMoving = true;
+
+		animator = GetComponent<Animator>();
 	}
 		
 	void Start() 
@@ -33,21 +39,30 @@ public class CameraManager : Singleton<CameraManager>
 		angleX = angles.x;
 		distance = 6.0f;
 		distanceBefore = distance;
+	}
 
-		cameraMoving = true;
+	void Update()
+	{
+		if(timer > 0.0f)
+			timer -= Time.deltaTime;
+		else
+			timer = 0.0f;
 	}
 
 	//Toggle if the camera moves with the mouse or not
 	public void ToggleCameraMoving(bool moving)
 	{
 		cameraMoving = moving;
-		player.GetComponent<Rigidbody> ().isKinematic = !moving;
+		player.GetComponent<Rigidbody>().isKinematic = !moving;
 	}
 
 	void LateUpdate() 
 	{
-		if(cameraMoving)
+		if(cameraMoving && timer == 0)
 		{
+			//Disable the animator
+			animator.enabled = false;
+
 			angleY += Input.GetAxis("Mouse X") * ySpeed * Time.deltaTime;
 			angleX -= Input.GetAxis("Mouse Y") * xSpeed * Time.deltaTime;
 
@@ -95,5 +110,11 @@ public class CameraManager : Singleton<CameraManager>
 		if (angle > 360F)
 			angle -= 360F;
 		return Mathf.Clamp(angle, min, max);
+	}
+
+	public void CameraZoom()
+	{
+		animator.Play("CameraStartLevel01");
+		timer = 1.3f;
 	}
 }

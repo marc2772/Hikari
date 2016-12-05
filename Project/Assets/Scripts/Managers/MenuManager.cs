@@ -7,7 +7,7 @@ public class MenuManager : Singleton<MenuManager>
 	public GameObject deathMenu;
 	public GameObject escapeMenu;
 
-	void Start()
+	void Awake()
 	{
 		CloseAllMenus();
 	}

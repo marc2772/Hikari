@@ -59,7 +59,7 @@ public class TimerManager : Singleton<TimerManager>
 		ChangeTimeBetweenUpdates(1.0f);
 		if(SceneManager.GetActiveScene().name == "Level01")
 		{
-			if(TutorialManager.Instance.accepted)
+			if(TutorialManager.Instance.Active)
 				time = 75 + TutorialManager.Instance.countBranch * 5;
 			else
 				time = 100;
@@ -72,7 +72,7 @@ public class TimerManager : Singleton<TimerManager>
 
 		if(SceneManager.GetActiveScene().name == "Level01")
 		{
-			if(!TutorialManager.Instance.accepted)
+			if(!TutorialManager.Instance.Active)
 				StartTimer();
 		}
 		else

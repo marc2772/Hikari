@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\SnowballSpawn.cs" />
      <Compile Include="Assets\Scripts\WindDamage.cs" />
      <Compile Include="Assets\Scripts\WindPush.cs" />
+     <Compile Include="Assets\SoundManager.cs" />
      <None Include="Assets\Resources\language.xml" />
      <None Include="Assets\Prefabs\Water\Shaders\FXWaterBasic.shader" />
  <Reference Include="UnityEngine.UI">

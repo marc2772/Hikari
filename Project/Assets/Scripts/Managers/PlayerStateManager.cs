@@ -14,6 +14,7 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
 	void Start()
 	{
 		currentState = PlayerState.Alive;
+		SoundManager.Instance.LevelStart();
 	}
 
 	public void Death()
@@ -23,6 +24,7 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
 		gameObject.SetActive(false);
 		TimerManager.Instance.StopTimer();
 		MenuManager.Instance.Death();
+		SoundManager.Instance.PlayerDeath();
 
 		CameraManager.Instance.ToggleCameraMoving(false);
 	}
@@ -38,6 +40,7 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
 
 		MenuManager.Instance.CloseAllMenus();
 		TimerManager.Instance.RestartTimer();
+		SoundManager.Instance.LevelStart();
 
 		CameraManager.Instance.ToggleCameraMoving(true);
 	}

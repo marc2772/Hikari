@@ -6,14 +6,15 @@ public class Cinematic : MonoBehaviour
 	public GameObject mainCamera;
 	public GameObject cinematicCamera;
 
-	private GameObject player;
-	private bool showGUI = false;
-	private Animation anim;
-	private bool animationStarted = false;
+	GameObject player;
+	bool showGUI = false;
+	Animation anim;
+	bool animationStarted = false;
 
 	void Awake ()
 	{
 		anim = cinematicCamera.GetComponent<Animation> ();
+		player = GameObject.FindGameObjectWithTag("Player");
 	}
 
 	void OnTriggerEnter(Collider collider)
@@ -21,8 +22,7 @@ public class Cinematic : MonoBehaviour
 		if (collider.gameObject.CompareTag("Player"))
 		{
 			TimerManager.Instance.StopTimer ();
-			player = collider.gameObject;
-			player.GetComponent<Rigidbody> ().isKinematic = true;
+			CameraManager.Instance.ToggleCameraMoving(false);
 			player.transform.position = gameObject.transform.position;
 			player.transform.LookAt (Vector3.zero);
 			mainCamera.SetActive(false);

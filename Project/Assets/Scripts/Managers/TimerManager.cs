@@ -31,7 +31,6 @@ public class TimerManager : Singleton<TimerManager>
 			{
 				currentHealth.fillAmount = time / 100.0f;
 				timeText.text = time.ToString("00") + " % ";
-				GetComponent<AudioSource> ().Play();
 				PlayerStateManager.Instance.Death();
 			}
 			else

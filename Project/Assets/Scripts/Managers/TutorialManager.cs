@@ -47,9 +47,9 @@ public class TutorialManager : Singleton<TutorialManager>
 	{
 		questWindowStart.SetActive (true);
 		Transform panel = questWindowStart.transform.Find("Panel");
-		panel.Find ("Title").GetComponent<Text> ().text = "\" Hold your breath! \"";
-		panel.Find ("Description").GetComponent<Text> ().text = "You're holding you're beath: it's so cold and windy out there, maybe you should collect some branches so that you can breath again before leaving the deserted camp ...";
-		panel.Find ("Ok").GetComponentInChildren<Text> ().text = "Ok";
+		panel.Find("Title").GetComponent<Text>().text = SettingsManager.Instance.GetString("DontLetTheFlameGoOut");
+		panel.Find("Description").GetComponent<Text> ().text = SettingsManager.Instance.GetString("TutorialDescription");
+		panel.Find("Ok").GetComponentInChildren<Text> ().text = SettingsManager.Instance.GetString("Ok");
 
 		CameraManager.Instance.ToggleCameraMoving(false);
 		Cursor.visible = true;
@@ -59,7 +59,7 @@ public class TutorialManager : Singleton<TutorialManager>
 	{
 		countWindow.SetActive(true);
 		Transform panel = countWindow.transform.Find("Panel");
-		panel.Find ("Branches").GetComponent<Text> ().text = "Branches:";
+		panel.Find("Branches").GetComponent<Text> ().text = SettingsManager.Instance.GetString("Branches") + ":";
 
 		countText = panel.Find("Count").GetComponent<Text>();
 	}
@@ -68,9 +68,9 @@ public class TutorialManager : Singleton<TutorialManager>
 	{
 		questWindowEnd.SetActive(true);
 		Transform panel = questWindowEnd.transform.Find("Panel");
-		panel.Find ("Title").GetComponent<Text> ().text = "\" Into the wild! \"";
-		panel.Find ("Description").GetComponent<Text> ().text = "Warmer now? Fine, let's have a go ahead! You need to retrieve the other flame you're linked to. See these ice blocks in front of the campfire? Maybe you should try and jump your way trough ...";
-		panel.Find ("LetsGo").GetComponentInChildren<Text> ().text = "Let's go";
+		panel.Find("Title").GetComponent<Text> ().text = SettingsManager.Instance.GetString("IntoTheWild");
+		panel.Find("Description").GetComponent<Text> ().text = SettingsManager.Instance.GetString("EndTutorialDescription");
+		panel.Find("LetsGo").GetComponentInChildren<Text> ().text = SettingsManager.Instance.GetString("LetsGo");
 
 		CameraManager.Instance.ToggleCameraMoving(false);
 		Cursor.visible = true;

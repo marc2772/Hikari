@@ -22,21 +22,27 @@
 
 
 		<string name="DontLetTheFlameGoOut">Don't let the flame go out</string>
-		<string name="TutorialDescription">It's so cold and windy out there, you should collect some branches before leaving the deserted camp...</string>
-		<string name="Ok">ok</string>
+		<string name="TutorialDescription">It's so cold and windy out there, you should collect some branches before leaving this deserted camp...</string>
+		<string name="Ok">Ok</string>
+
 		<string name="Branches">Branches</string>
+
 		<string name="IntoTheWild">Into the wild</string>
 		<string name="EndTutorialDescription">Feel warmer now? Fine, let's go! You need to retrieve the other flame you're linked to. See these ice blocks in front of the campfire? Maybe you should try and jump your way through...</string>
 		<string name="LetsGo">Let's go</string>
+
+		<string name="WhatHaveYouDone">What have you done?</string>
+		<string name="CinematicDescription">Look all around! It's all melted: what have you done? Are you sure you want to keep on searching for the flame you're linked to? ...</string>
+		<string name="OfCourse">Of course!</string>
 	</English>
 
 	<Français>
      	<string name="Play">Jouer</string>
-		<string name="LevelSelection">Selection du niveau</string>
+		<string name="LevelSelection">Sélection du niveau</string>
 		<string name="Level01">Niveau 1</string>
 		<string name="Level02">Niveau 2</string>
 
-		<string name="Settings">Parametres</string>
+		<string name="Settings">Paramètres</string>
 		<string name="MouseSensitivity">Sensibilité de la souris</string>
 		<string name="Audio">Audio</string>
 		<string name="ClearAllData">Effacer toutes les données</string>
@@ -46,17 +52,23 @@
 		<string name="InstructionsText">Instructions vraiment longues</string>
 
 		<string name="Exit">Quitter</string>
-		<string name="AreYouSure">Etes-vous sur</string>
+		<string name="AreYouSure">Êtes-vous sur</string>
 		<string name="Yes">Oui</string>
 		<string name="No">Non</string>
 
 
-		<string name="DontLetTheFlameGoOut">Ne laissez pas la flamme s'eteindre</string>
-		<string name="TutorialDescription">C'est si froid et venteux ici, vous devriez amassez quelques branches avant de quitter ce camp désert...</string>
-		<string name="Ok">ok</string>
+		<string name="DontLetTheFlameGoOut">Ne laisse pas ta flamme s'éteindre</string>
+		<string name="TutorialDescription">C'est si froid et venteux ici, tu devrais ramasser quelques branches avant de quitter ce camp désert...</string>
+		<string name="Ok">Ok</string>
+
 		<string name="Branches">Branches</string>
+
 		<string name="IntoTheWild">Seul contre la nature</string>
-		<string name="EndTutorialDescription">Enfin un peu plus de chaleur! C'est le temps de partir maintenant! Vous devez retrouver la flamme qui vous est liée. Vous voyez les blocs de glace droit devant? Peut-être devriez-vous tenter de les utiliser pour traverser...</string>
+		<string name="EndTutorialDescription">Enfin un peu plus de chaleur ! Il est temps de partir maintenant ! Tu dois retrouver la flamme à laquelle tu es lié. Vois-tu ces blocs de glace droit devant ? Peut-être devrais-tu tenter de les utiliser pour traverser...</string>
 		<string name="LetsGo">Allons-y</string>
+
+		<string name="WhatHaveYouDone">Qu'as-tu fait ?</string>
+		<string name="CinematicDescription">Regarde tout autout de toi ! Tout est fondu : mais qu'as-tu fait ? Es-tu sûr de vouloir continuer à chercher la flamme à laquelle tu es lié ? ...</string>
+		<string name="OfCourse">Bien sûr !</string>
 	</Français>
 </languages>

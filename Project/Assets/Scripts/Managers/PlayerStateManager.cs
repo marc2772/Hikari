@@ -3,6 +3,9 @@ using System.Collections;
 
 public class PlayerStateManager : Singleton<PlayerStateManager>
 {
+	private Transform spawnPoint;
+	private bool spawnPointActive = false; 
+
 	public enum PlayerState
 	{
 		Alive,
@@ -13,6 +16,7 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
 
 	void Start()
 	{
+		spawnPoint = GameObject.FindGameObjectWithTag ("Respawn").transform;
 		currentState = PlayerState.Alive;
 		SoundManager.Instance.LevelStart();
 	}
@@ -31,7 +35,7 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
 
 	public void Respawn()
 	{
-		Vector3 position = GameObject.FindGameObjectWithTag("Respawn").transform.position;
+		Vector3 position = spawnPoint.position;
 
 		gameObject.transform.position = position;
 		GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
@@ -39,9 +43,18 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
 		gameObject.SetActive(true);
 
 		MenuManager.Instance.CloseAllMenus();
-		TimerManager.Instance.RestartTimer();
+		if(spawnPointActive)
+			TimerManager.Instance.RestartTimer(50);
+		else
+			TimerManager.Instance.RestartTimer(100);
 		SoundManager.Instance.LevelStart();
 
 		CameraManager.Instance.ToggleCameraMoving(true);
+	}
+
+	public void ChangeSpawnPoint(Transform newSpawnPoint)
+	{
+		spawnPoint = newSpawnPoint;
+		spawnPointActive = true;
 	}
 }

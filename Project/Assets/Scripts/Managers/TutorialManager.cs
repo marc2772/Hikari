@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class TutorialManager : Singleton<TutorialManager>
 {
-	public GameObject questWindowStart;
-	public GameObject questWindowEnd;
+	public GameObject questWindow;
 	public GameObject countWindow;
 
 	public GameObject branch;
@@ -25,8 +24,7 @@ public class TutorialManager : Singleton<TutorialManager>
 		foreach (var ice in iceFloating)
 			ice.SetActive (false);
 
-		questWindowStart.SetActive(false);
-		questWindowEnd.SetActive(false);
+		questWindow.SetActive(false);
 		countWindow.SetActive(false);
 
 		TimerManager.Instance.StopTimer ();
@@ -45,11 +43,14 @@ public class TutorialManager : Singleton<TutorialManager>
 
 	void StartTutorial()
 	{
-		questWindowStart.SetActive (true);
-		Transform panel = questWindowStart.transform.Find("Panel");
+		questWindow.SetActive (true);
+		Transform panel = questWindow.transform.Find("Panel");
 		panel.Find("Title").GetComponent<Text>().text = SettingsManager.Instance.GetString("DontLetTheFlameGoOut");
 		panel.Find("Description").GetComponent<Text> ().text = SettingsManager.Instance.GetString("TutorialDescription");
-		panel.Find("Ok").GetComponentInChildren<Text> ().text = SettingsManager.Instance.GetString("Ok");
+		Transform okButton = panel.Find ("Ok");
+		okButton.GetComponentInChildren<Text> ().text = SettingsManager.Instance.GetString("Ok");
+		okButton.GetComponent<Button>().onClick.RemoveAllListeners ();
+		okButton.GetComponent<Button>().onClick.AddListener (OkButton);
 
 		CameraManager.Instance.ToggleCameraMoving(false);
 		Cursor.visible = true;
@@ -66,11 +67,14 @@ public class TutorialManager : Singleton<TutorialManager>
 
 	void EndTutorial()
 	{
-		questWindowEnd.SetActive(true);
-		Transform panel = questWindowEnd.transform.Find("Panel");
+		questWindow.SetActive(true);
+		Transform panel = questWindow.transform.Find("Panel");
 		panel.Find("Title").GetComponent<Text> ().text = SettingsManager.Instance.GetString("IntoTheWild");
 		panel.Find("Description").GetComponent<Text> ().text = SettingsManager.Instance.GetString("EndTutorialDescription");
-		panel.Find("LetsGo").GetComponentInChildren<Text> ().text = SettingsManager.Instance.GetString("LetsGo");
+		Transform letsGoButton = panel.Find ("Ok");
+		letsGoButton.GetComponentInChildren<Text> ().text = SettingsManager.Instance.GetString("LetsGo");
+		letsGoButton.GetComponent<Button>().onClick.RemoveAllListeners ();
+		letsGoButton.GetComponent<Button>().onClick.AddListener (LetsGoButton);
 
 		CameraManager.Instance.ToggleCameraMoving(false);
 		Cursor.visible = true;
@@ -80,7 +84,7 @@ public class TutorialManager : Singleton<TutorialManager>
 	{
 		Active = true;
 
-		questWindowStart.SetActive(false);
+		questWindow.SetActive(false);
 		InstantiateObjects ();
 		Cursor.visible = false;
 		CameraManager.Instance.ToggleCameraMoving(true);
@@ -94,7 +98,7 @@ public class TutorialManager : Singleton<TutorialManager>
 		Active = false;
 
 		countWindow.SetActive(false);
-		questWindowEnd.SetActive(false);
+		questWindow.SetActive(false);
 		foreach (var ice in iceFloating)
 			ice.SetActive (true);
 		Cursor.visible = false;

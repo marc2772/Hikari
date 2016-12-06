@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Cinematic : MonoBehaviour
 {
+	public GameObject questWindow;
 	public GameObject mainCamera;
 	public GameObject cinematicCamera;
 
-	GameObject player;
-	bool showGUI = false;
-	Animation anim;
-	bool animationStarted = false;
+	private GameObject player;
+	private Animation anim;
 
 	void Awake ()
 	{
@@ -27,45 +27,42 @@ public class Cinematic : MonoBehaviour
 			player.transform.LookAt (Vector3.zero);
 			mainCamera.SetActive(false);
 			cinematicCamera.SetActive (true);
-		}
-	}
-
-	// Update is called once per frame
-	void Update () 
-	{
-		if (cinematicCamera.activeSelf == true && !animationStarted) {
 			StartCoroutine ("PlayAnimation");
-			animationStarted = true;
 		}
 	}
 
-	void OnGUI () {
-		if (showGUI) {
-			int BoxWidth = 300;
-			int BoxHeight = 150;
-			GUI.BeginGroup (new Rect ((Screen.width - BoxWidth) / 2, (Screen.height - BoxHeight) / 2, BoxWidth, BoxHeight));
-			GUI.Box (new Rect (0, 0, BoxWidth, BoxHeight), "\" What have you done? \"");
-			GUI.Label (new Rect (10, 20, BoxWidth - 10, BoxHeight), "Look all around! It's all melted: what have you done? Are you sure you want to keep on searching for the flame you're linked to? ...");
-			if (GUI.Button (new Rect (110, 90, 80, 50), "Yes!")) {
-				showGUI = false;
-				mainCamera.SetActive(true);
-				cinematicCamera.SetActive (false);
-				Cursor.visible = !Cursor.visible;
-				player.transform.position = new Vector3 (-2, 40, 360); // on top of cave entrance
-				player.GetComponent<Rigidbody> ().isKinematic = false;
-			}         
-			GUI.EndGroup ();
-		}
+	void ShowCinematicWindow () {
+		questWindow.SetActive (true);
+		Transform panel = questWindow.transform.Find("Panel");
+		panel.Find("Title").GetComponent<Text>().text = SettingsManager.Instance.GetString("WhatHaveYouDone");
+		panel.Find("Description").GetComponent<Text> ().text = SettingsManager.Instance.GetString("CinematicDescription");
+		Transform okButton = panel.Find ("Ok");
+		okButton.GetComponentInChildren<Text> ().text = SettingsManager.Instance.GetString("Yes");
+		okButton.GetComponent<Button>().onClick.RemoveAllListeners ();
+		okButton.GetComponent<Button>().onClick.AddListener (YesButton);
+
+		CameraManager.Instance.ToggleCameraMoving(false);
+		Cursor.visible = true;
 	}
 
 	IEnumerator PlayAnimation ()
 	{
-		anim ["CameraCinematicLevel01"].speed = 0.1f;
+		anim ["CameraCinematicLevel01"].speed = 0.06f;
 		anim.Play();
 
-		yield return new WaitForSeconds(2.0f);
+		yield return new WaitForSeconds(5.0f);
 
-		showGUI = true;
-		Cursor.visible = true;
+		ShowCinematicWindow ();
+	}
+
+	public void YesButton ()
+	{
+		questWindow.SetActive(false);
+		Cursor.visible = false;
+		cinematicCamera.SetActive (false);
+		mainCamera.SetActive(true);
+		CameraManager.Instance.ToggleCameraMoving(true);
+		player.transform.position = new Vector3 (-2, 40, 360); // on top of cave entrance
+		player.GetComponent<Rigidbody> ().isKinematic = false;
 	}
 }

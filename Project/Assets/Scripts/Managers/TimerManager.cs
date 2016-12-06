@@ -53,7 +53,7 @@ public class TimerManager : Singleton<TimerManager>
 		StartCoroutine(coroutine);
 	}
 
-	public void RestartTimer()
+	public void RestartTimer(int newTime)
 	{
 		ChangeTimeBetweenUpdates(1.0f);
 		if(SceneManager.GetActiveScene().name == "Level01")
@@ -61,10 +61,10 @@ public class TimerManager : Singleton<TimerManager>
 			if(TutorialManager.Instance.Active)
 				time = 75 + TutorialManager.Instance.countBranch * 5;
 			else
-				time = 100;
+				time = newTime;
 		}
 		else
-			time = 100;
+			time = newTime;
 		
 		currentHealth.fillAmount = time / 100.0f;
 		timeText.text = time.ToString("00") + " % ";

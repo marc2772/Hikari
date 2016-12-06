@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Managers\MenuManager.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerStateManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Managers\TimerManager.cs" />
      <Compile Include="Assets\Scripts\Managers\TutorialManager.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />
@@ -72,7 +73,6 @@
      <Compile Include="Assets\Scripts\SnowballSpawn.cs" />
      <Compile Include="Assets\Scripts\WindDamage.cs" />
      <Compile Include="Assets\Scripts\WindPush.cs" />
-     <Compile Include="Assets\SoundManager.cs" />
      <None Include="Assets\Resources\language.xml" />
      <None Include="Assets\Prefabs\Water\Shaders\FXWaterBasic.shader" />
  <Reference Include="UnityEngine.UI">

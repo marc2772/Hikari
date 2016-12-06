@@ -117,4 +117,41 @@ public class CameraManager : Singleton<CameraManager>
 		animator.Play("CameraStartLevel01");
 		timer = 1.3f;
 	}
+
+	public void StartShake()
+	{
+		StartCoroutine(Shake());
+	}
+
+	IEnumerator Shake()
+	{
+		ToggleCameraMoving(false);
+		Vector3 position = transform.position;
+
+		float magnitude = 0.3f;
+		float elapsed = 0.0f;
+		float duration = 0.4f;
+		while (elapsed < duration)
+		{
+			elapsed += Time.deltaTime;			
+
+			float percentComplete = elapsed / duration;			
+			float damper = 1.0f - Mathf.Clamp(4.0f * percentComplete - 3.0f, 0.0f, 1.0f);
+
+			// map noise to [-1, 1]
+			float x = Random.value * 2.0f - 1.0f;
+			float y = Random.value * 2.0f - 1.0f;
+			x *= magnitude * damper;
+			y *= magnitude * damper;
+			transform.position = new Vector3(x + position.x, y + position.y, position.z);
+
+			Debug.Log(transform.position);
+
+			yield return new WaitForSeconds(0.02f);
+		}
+
+		//Go back to where it was
+		transform.position = position;
+		ToggleCameraMoving(true);
+	}
 }

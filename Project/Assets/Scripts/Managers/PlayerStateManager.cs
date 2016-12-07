@@ -16,7 +16,7 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
 
 	void Start()
 	{
-		spawnPoint = GameObject.FindGameObjectWithTag ("Respawn").transform;
+		spawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
 		currentState = PlayerState.Alive;
 		SoundManager.Instance.LevelStart();
 	}

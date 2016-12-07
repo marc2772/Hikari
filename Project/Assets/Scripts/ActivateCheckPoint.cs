@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ActivateCheckPoint : MonoBehaviour {
-
+public class ActivateCheckPoint : MonoBehaviour
+{
 	public ParticleSystem inactivated;
 	public ParticleSystem activated;
 
@@ -10,8 +10,8 @@ public class ActivateCheckPoint : MonoBehaviour {
 	{
 		if (collider.gameObject.CompareTag("Player"))
 		{ 
-			inactivated.Stop ();
-			activated.Play ();
+			inactivated.Stop();
+			activated.Play();
 			PlayerStateManager.Instance.ChangeSpawnPoint (transform);
 		}
 	}

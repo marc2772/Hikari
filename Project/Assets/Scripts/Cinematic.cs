@@ -31,17 +31,18 @@ public class Cinematic : MonoBehaviour
 		}
 	}
 
-	void ShowCinematicWindow () {
-		questWindow.SetActive (true);
+	void ShowCinematicWindow()
+	{
+		questWindow.SetActive(true);
 		Transform panel = questWindow.transform.Find("Panel");
 		panel.Find("Title").GetComponent<Text>().text = SettingsManager.Instance.GetString("WhatHaveYouDone");
-		panel.Find("Description").GetComponent<Text> ().text = SettingsManager.Instance.GetString("CinematicDescription");
-		Transform okButton = panel.Find ("Ok");
-		okButton.GetComponentInChildren<Text> ().text = SettingsManager.Instance.GetString("Yes");
-		okButton.GetComponent<Button>().onClick.RemoveAllListeners ();
-		okButton.GetComponent<Button>().onClick.AddListener (YesButton);
+		panel.Find("Description").GetComponent<Text>().text = SettingsManager.Instance.GetString("CinematicDescription");
+		Transform okButton = panel.Find("Ok");
+		okButton.GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("Yes");
+		Button ok = okButton.GetComponent<Button>();
+		ok.onClick.RemoveAllListeners();
+		ok.onClick.AddListener(YesButton);
 
-		CameraManager.Instance.ToggleCameraMoving(false);
 		Cursor.visible = true;
 	}
 
@@ -52,10 +53,10 @@ public class Cinematic : MonoBehaviour
 
 		yield return new WaitForSeconds(5.0f);
 
-		ShowCinematicWindow ();
+		ShowCinematicWindow();
 	}
 
-	public void YesButton ()
+	public void YesButton()
 	{
 		questWindow.SetActive(false);
 		Cursor.visible = false;

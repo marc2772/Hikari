@@ -23,7 +23,7 @@ public class NextLevel : MonoBehaviour
 		float volume = backgroundMusic.volume;
 		while(volume > 0.1f)
 		{
-			volume -= Time.deltaTime;
+			volume -= 2*Time.deltaTime;
 			backgroundMusic.volume = volume;
 
 			Color color = blackImage.color;

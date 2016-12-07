@@ -145,8 +145,6 @@ public class CameraManager : Singleton<CameraManager>
 			y *= magnitude * damper;
 			transform.position = new Vector3(x + position.x, y + position.y, position.z);
 
-			Debug.Log(transform.position);
-
 			yield return new WaitForSeconds(0.02f);
 		}
 

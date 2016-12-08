@@ -157,6 +157,11 @@ public class Menu : MonoBehaviour
 		panel.Find("BackPage").gameObject.SetActive(true);
 	}
 
+	public void PlayPageTurnSound()
+	{
+		InstructionsMenu.GetComponent<AudioSource>().Play();
+	}
+
 	public void Exit()
 	{
 		StartCoroutine(ExitCoroutine());

@@ -20,10 +20,11 @@ public class Menu : MonoBehaviour
 
 	void Start()
 	{
-		int level = PlayerPrefs.GetInt("Level", 0);
-		if(level >= 1)
+		int level01 = PlayerPrefs.GetInt("Level01", 0);
+		int level02 = PlayerPrefs.GetInt("Level02", 0);
+		if(level01 == 1)
 			level1Image.SetActive(true);
-		if(level >= 2)
+		if(level02 == 1)
 			level2Image.SetActive(true);
 
 		UpdateAllStrings();
@@ -60,6 +61,7 @@ public class Menu : MonoBehaviour
 		{
 			if(!cam.IsPlaying())
 			{
+				InstructionsP1();
 				InstructionsMenu.SetActive(false);
 				cam.InstructionsBackwards();
 			}
@@ -135,6 +137,26 @@ public class Menu : MonoBehaviour
 		}
 	}
 
+	public void InstructionsP1()
+	{
+		Transform panel = InstructionsMenu.transform.Find("Panel");
+		panel.Find("Text1").gameObject.SetActive(true);
+		panel.Find("NextPage").gameObject.SetActive(true);
+
+		panel.Find("Text2").gameObject.SetActive(false);
+		panel.Find("BackPage").gameObject.SetActive(false);
+	}
+
+	public void InstructionsP2()
+	{
+		Transform panel = InstructionsMenu.transform.Find("Panel");
+		panel.Find("Text1").gameObject.SetActive(false);
+		panel.Find("NextPage").gameObject.SetActive(false);
+
+		panel.Find("Text2").gameObject.SetActive(true);
+		panel.Find("BackPage").gameObject.SetActive(true);
+	}
+
 	public void Exit()
 	{
 		StartCoroutine(ExitCoroutine());
@@ -198,7 +220,8 @@ public class Menu : MonoBehaviour
 
 		panel = InstructionsMenu.transform.Find("Panel");
 		panel.Find("Title").GetComponent<Text>().text = SettingsManager.Instance.GetString("Instructions");
-		panel.Find("Text").GetComponent<Text>().text = SettingsManager.Instance.GetString("InstructionsText");
+		panel.Find("Text1").GetComponent<Text>().text = SettingsManager.Instance.GetString("InstructionsP1");
+		panel.Find("Text2").GetComponent<Text>().text = SettingsManager.Instance.GetString("InstructionsP2");
 
 		panel = ExitMenu.transform.Find("Panel");
 		panel.Find("Title").GetComponent<Text>().text = SettingsManager.Instance.GetString("AreYouSure");

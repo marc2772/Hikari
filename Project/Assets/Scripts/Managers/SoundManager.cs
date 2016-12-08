@@ -10,6 +10,8 @@ public class SoundManager : Singleton<SoundManager>
 	public AudioClip jump2;
 	public AudioClip playerDeath;
 
+	public AudioClip rockFalling;
+
 	AudioSource source;
 
 	void Awake()
@@ -38,5 +40,10 @@ public class SoundManager : Singleton<SoundManager>
 			GetComponent<AudioSource>().PlayOneShot(jump1, 0.5f);
 		else
 			GetComponent<AudioSource>().PlayOneShot(jump2, 0.5f);
+	}
+
+	public void RockFalling()
+	{
+		source.PlayOneShot(rockFalling);
 	}
 }

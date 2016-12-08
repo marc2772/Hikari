@@ -46,11 +46,11 @@ public class TutorialManager : Singleton<TutorialManager>
 		questWindow.SetActive (true);
 		Transform panel = questWindow.transform.Find("Panel");
 		panel.Find("Title").GetComponent<Text>().text = SettingsManager.Instance.GetString("DontLetTheFlameGoOut");
-		panel.Find("Description").GetComponent<Text> ().text = SettingsManager.Instance.GetString("TutorialDescription");
+		panel.Find("Description").GetComponent<Text>().text = SettingsManager.Instance.GetString("TutorialDescription");
 		Transform okButton = panel.Find ("Ok");
-		okButton.GetComponentInChildren<Text> ().text = SettingsManager.Instance.GetString("Ok");
-		okButton.GetComponent<Button>().onClick.RemoveAllListeners ();
-		okButton.GetComponent<Button>().onClick.AddListener (OkButton);
+		okButton.GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("Ok");
+		okButton.GetComponent<Button>().onClick.RemoveAllListeners();
+		okButton.GetComponent<Button>().onClick.AddListener(OkButton);
 
 		CameraManager.Instance.ToggleCameraMoving(false);
 		Cursor.visible = true;
@@ -80,7 +80,7 @@ public class TutorialManager : Singleton<TutorialManager>
 		Cursor.visible = true;
 	}
 
-	public void OkButton ()
+	public void OkButton()
 	{
 		Active = true;
 
@@ -93,7 +93,7 @@ public class TutorialManager : Singleton<TutorialManager>
 		BeginTutorial();
 	}
 
-	public void LetsGoButton ()
+	public void LetsGoButton()
 	{
 		Active = false;
 
@@ -107,7 +107,7 @@ public class TutorialManager : Singleton<TutorialManager>
 		TimerManager.Instance.StartTimer ();
 	}
 			
-	void InstantiateObjects ()
+	void InstantiateObjects()
 	{
 		List<Vector3> spawnPoints = new List<Vector3>();
 		Vector3 spawnPoint = new Vector3 ();

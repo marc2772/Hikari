@@ -3,8 +3,8 @@
 	<English>
      	<string name="Play">Play</string>
 		<string name="LevelSelection">Level Selection</string>
-		<string name="Level01">Level 1</string>
-		<string name="Level02">Level 2</string>
+		<string name="Level01">Frosty Peak</string>
+		<string name="Level02">Icy Cavern</string>
 
 		<string name="Settings">Settings</string>
 		<string name="MouseSensitivity">Mouse sensitivity</string>
@@ -13,7 +13,21 @@
 		<string name="DataCleared">Data cleared</string>
 
 		<string name="Instructions">Instructions</string>
-		<string name="InstructionsText">Long long instructions</string>
+		<string name="InstructionsP1">In this game, you incarnate a little flame that needs to survive in a harsh climate.
+
+Controls:
+
+ - Spacebar:		Jump
+ - WASD:			Move
+ - Escape:		Open the menu</string>
+
+		<string name="InstructionsP2">Useful informations:
+
+ - Don't let your health bar drop to 0
+ - Collect branches along the way to make your
+ 	health go up
+ - Campfires represent a checkpoint
+ - If you touch water, you extinguish immediately</string>
 
 		<string name="Exit">Exit</string>
 		<string name="AreYouSure">Are you sure</string>
@@ -34,13 +48,17 @@
 		<string name="WhatHaveYouDone">Hard decision</string>
 		<string name="CinematicDescription">Look all around! It's all in fire! What have you done? Are you sure you want to keep on searching for the flame you're linked to?</string>
 		<string name="OfCourse">Of course</string>
+
+
+		<string name="CloseCall">Close call</string>
+		<string name="EndingDescription">That was a close call! At least you're safe. There's no time to waste though, so you better go check in that forest for your other half!</string>
 	</English>
 
 	<Français>
      	<string name="Play">Jouer</string>
 		<string name="LevelSelection">Selection du niveau</string>
-		<string name="Level01">Niveau 1</string>
-		<string name="Level02">Niveau 2</string>
+		<string name="Level01">Sommet glacial</string>
+		<string name="Level02">Caverne gelee</string>
 
 		<string name="Settings">Parametres</string>
 		<string name="MouseSensitivity">Sensibilité de la souris</string>
@@ -49,7 +67,22 @@
 		<string name="DataCleared">Données effacées</string>
 
 		<string name="Instructions">Instructions</string>
-		<string name="InstructionsText">Instructions vraiment longues</string>
+		<string name="InstructionsP1">Dans ce jeu, tu incarnes une petite flamme qui doit survivre dans un climat rude.
+
+Contrôles:
+
+ - Espace:		Sauter
+ - WASD:			Se déplacer
+ - Échapper:		Ouvrir le menu</string>
+		<string name="InstructionsP2">Informations utiles:
+
+ - Ne laisse pas ta barre de vie descendre à 0
+ - Amasse des branches au long de ton chemin
+ 	pour faire monter ta barre de vie
+ - Les feux de camp représentent des points de
+ 	sauvegarde
+ - Si tu touches de l'eau, tu t'éteinds
+ 	immédiatement</string>
 
 		<string name="Exit">Quitter</string>
 		<string name="AreYouSure">Etes-vous sur</string>
@@ -70,5 +103,9 @@
 		<string name="WhatHaveYouDone">Dure decision</string>
 		<string name="CinematicDescription">Regarde tout autout de toi ! Tout est en feu ! Mais qu'as-tu fait ? Es-tu sûr de vouloir continuer à chercher la flamme à laquelle tu es lié ?</string>
 		<string name="OfCourse">Bien sur</string>
+
+
+		<string name="CloseCall">C'etait moins une</string>
+		<string name="EndingDescription">C'était moins une ! Au moins tu es encore en un morceaux. Mais tu n'as pas de temps à perdre, alors tu devrais aller voir dans cette forêt pour ton autre moitié !</string>
 	</Français>
 </languages>

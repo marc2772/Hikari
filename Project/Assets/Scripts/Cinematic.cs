@@ -21,7 +21,7 @@ public class Cinematic : MonoBehaviour
 	{
 		if (collider.gameObject.CompareTag("Player"))
 		{
-			TimerManager.Instance.StopTimer ();
+			TimerManager.Instance.StopTimer();
 			CameraManager.Instance.ToggleCameraMoving(false);
 			player.transform.position = gameObject.transform.position;
 			player.transform.LookAt (Vector3.zero);

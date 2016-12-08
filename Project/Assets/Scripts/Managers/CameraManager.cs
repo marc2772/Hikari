@@ -152,4 +152,12 @@ public class CameraManager : Singleton<CameraManager>
 		transform.position = position;
 		ToggleCameraMoving(true);
 	}
+
+	public void CameraEndingAnimation()
+	{
+		animator.enabled = true;
+		ToggleCameraMoving(false);
+
+		animator.Play("CameraEndingLevel02");
+	}
 }

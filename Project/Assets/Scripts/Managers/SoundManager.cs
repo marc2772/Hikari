@@ -18,6 +18,11 @@ public class SoundManager : Singleton<SoundManager>
 	{
 		source = GetComponent<AudioSource>();
 	}
+
+	void Start()
+	{
+		source.enabled = SettingsManager.Instance.GetSound();
+	}
 	
 	public void WoodCollect()
 	{

@@ -14,6 +14,10 @@ public class BridgeFall : MonoBehaviour
 	void Fall()
 	{
 		if(!gameObject.GetComponent<Rigidbody>())
+		{
 			gameObject.AddComponent<Rigidbody>();
+			CameraManager.Instance.StartShake();
+			SoundManager.Instance.RockFalling();
+		}
 	}
 }

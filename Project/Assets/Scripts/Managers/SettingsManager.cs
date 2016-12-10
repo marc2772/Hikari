@@ -7,7 +7,7 @@ public class SettingsManager : Singleton<SettingsManager>
 	Language language;
 	string currentLanguage;
 
-	bool Mute;
+	bool Sound;
 	float MouseSensitivity;
 
 	void Awake()
@@ -20,7 +20,7 @@ public class SettingsManager : Singleton<SettingsManager>
 		language = new Language("language", currentLanguage);
 
 		//Get settings
-		Mute = PlayerPrefs.GetInt("Mute", 0) == 1 ? true : false;
+		Sound = PlayerPrefs.GetInt("Sound", 1) == 1 ? true : false;
 		MouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 120);
 	}
 
@@ -30,20 +30,26 @@ public class SettingsManager : Singleton<SettingsManager>
 			Cursor.lockState = CursorLockMode.Confined;
 	}
 
-	public void SetMute(bool mute)
+	public void RefreshAllData()
 	{
-		Mute = mute;
-		PlayerPrefs.SetInt("Mute", Mute ? 1 : 0);
+		Sound = PlayerPrefs.GetInt("Sound", 1) == 1 ? true : false;
+		MouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 120);
 	}
 
-	public bool GetMute()
+	public void SetSound(bool sound)
 	{
-		return Mute;
+		Sound = sound;
+		PlayerPrefs.SetInt("Sound", Sound ? 1 : 0);
+	}
+
+	public bool GetSound()
+	{
+		return Sound;
 	}
 
 	public void SetMouseSensitivity(float sens)
 	{
-		MouseSensitivity = sens;
+		MouseSensitivity = sens * 240;
 		PlayerPrefs.SetFloat("MouseSensitivity", MouseSensitivity);
 	}
 

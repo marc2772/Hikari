@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\Popup.cs" />
      <Compile Include="Assets\Scripts\RespawnAll.cs" />
      <Compile Include="Assets\Scripts\SafeZone.cs" />
+     <Compile Include="Assets\Scripts\SetSoundAtStart.cs" />
      <Compile Include="Assets\Scripts\Singleton.cs" />
      <Compile Include="Assets\Scripts\SnowballRoll.cs" />
      <Compile Include="Assets\Scripts\SnowballSpawn.cs" />

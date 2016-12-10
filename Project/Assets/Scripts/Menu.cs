@@ -18,6 +18,8 @@ public class Menu : MonoBehaviour
 	public GameObject level1Image;
 	public GameObject level2Image;
 
+	public AudioSource[] audioSources;
+
 	void Start()
 	{
 		int level01 = PlayerPrefs.GetInt("Level01", 0);
@@ -28,6 +30,7 @@ public class Menu : MonoBehaviour
 			level2Image.SetActive(true);
 
 		UpdateAllStrings();
+		SetSound(SettingsManager.Instance.GetSound());
 
 		PlayMenu.SetActive(false);
 		SettingsMenu.SetActive(false);
@@ -159,7 +162,8 @@ public class Menu : MonoBehaviour
 
 	public void PlayPageTurnSound()
 	{
-		InstructionsMenu.GetComponent<AudioSource>().Play();
+		if(SettingsManager.Instance.GetSound())
+			InstructionsMenu.GetComponent<AudioSource>().Play();
 	}
 
 	public void Exit()
@@ -186,11 +190,27 @@ public class Menu : MonoBehaviour
 	public void DeleteAllData()
 	{
 		PlayerPrefs.DeleteAll();
+		SettingsManager.Instance.RefreshAllData();
+
 		GameObject popup = (GameObject)Instantiate(deleteAllDataPopupPrefab, SettingsMenu.transform.Find("Panel"), false);
 		popup.GetComponent<Text>().text = SettingsManager.Instance.GetString("DataCleared");
 		level1Image.SetActive(false);
 		level2Image.SetActive(false);
 		ChangeLanguage();
+	}
+
+	public void SetSound(bool sound)
+	{
+		SettingsManager.Instance.SetSound(sound);
+		foreach(AudioSource AS in audioSources)
+		{
+			AS.enabled = sound;
+		}
+	}
+
+	public void SetMouseSensitivity(float sens)
+	{
+		SettingsManager.Instance.SetMouseSensitivity(sens);
 	}
 
 	public void ChangeLanguage()
@@ -219,7 +239,9 @@ public class Menu : MonoBehaviour
 		panel = SettingsMenu.transform.Find("Panel");
 		panel.Find("Title").GetComponent<Text>().text = SettingsManager.Instance.GetString("Settings");
 		panel.Find("Audio").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("Audio");
+		panel.Find("Audio").GetComponent<Toggle>().isOn = SettingsManager.Instance.GetSound();
 		panel.Find("Mouse Sensitivity Text").GetComponent<Text>().text = SettingsManager.Instance.GetString("MouseSensitivity");
+		panel.Find("Mouse Sensitivity").GetComponent<Slider>().value = SettingsManager.Instance.GetMouseSensitivity() / 240;
 		panel.Find("DeleteAllData").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("ClearAllData");
 		panel.Find("Dropdown").GetComponent<Dropdown>().value = SettingsManager.Instance.GetLanguage() == "English" ? 0 : 1;
 

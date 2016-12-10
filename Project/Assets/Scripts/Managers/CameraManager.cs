@@ -5,8 +5,8 @@ public class CameraManager : Singleton<CameraManager>
 {
 	GameObject player; //The player we want to follow
 
-	public float ySpeed; //The speed we want to rotate around the Y axis (the Mouse X axis)
-	public float xSpeed; //The speed we want to rotate around the X axis (the Mouse Y axis)
+	float ySpeed; //The speed we want to rotate around the Y axis (the Mouse X axis)
+	float xSpeed; //The speed we want to rotate around the X axis (the Mouse Y axis)
 
 	public float xMinRotation; //The minimum angle allowed around the X axis
 	public float xMaxRotation; //The maximum angle allowed around the X axis
@@ -34,6 +34,8 @@ public class CameraManager : Singleton<CameraManager>
 		
 	void Start() 
 	{
+		ySpeed = SettingsManager.Instance.GetMouseSensitivity();
+		xSpeed = SettingsManager.Instance.GetMouseSensitivity();
 		Vector3 angles = transform.eulerAngles;
 		angleY = angles.y;
 		angleX = angles.x;

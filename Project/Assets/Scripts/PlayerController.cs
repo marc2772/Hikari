@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
 		{
 			anim.SetTrigger("jump");
 			SoundManager.Instance.Jump();
+			rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
 			rb.AddForce(Vector3.up * verticalSpeed, ForceMode.Impulse);
 		}
 	}

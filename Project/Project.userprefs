@@ -1,12 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BridgeFall.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerController.cs">
     <Files>
-      <File FileName="Assets\Scripts\Menu.cs" Line="244" Column="117" />
-      <File FileName="Assets\Scripts\Managers\SettingsManager.cs" Line="52" Column="31" />
-      <File FileName="Assets\Scripts\Managers\CameraManager.cs" Line="38" Column="59" />
-      <File FileName="Assets\Scripts\Managers\SoundManager.cs" Line="41" Column="2" />
-      <File FileName="Assets\Scripts\BridgeFall.cs" Line="20" Column="40" />
+      <File FileName="Assets\Scripts\Menu.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\SettingsManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\CameraManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\SoundManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BridgeFall.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="68" Column="63" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

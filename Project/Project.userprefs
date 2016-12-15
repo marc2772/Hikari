@@ -1,9 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\WindPush.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\language.xml">
     <Files>
-      <File FileName="Assets\Scripts\WindPush.cs" Line="55" Column="1" />
-      <File FileName="Assets\Scripts\RespawnAll.cs" Line="14" Column="3" />
+      <File FileName="Assets\Scripts\WindPush.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\MenuManager.cs" Line="17" Column="79" />
+      <File FileName="Assets\Resources\language.xml" Line="101" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -35,6 +35,12 @@ Controls:
 		<string name="No">No</string>
 
 
+		<string name="Quit">Quit</string>
+		<string name="TryAgain">Try Again</string>
+		<string name="Menu">Menu</string>
+		<string name="GameOver">GameOver</string>
+
+
 		<string name="DontLetTheFlameGoOut">Don't let the flame go out</string>
 		<string name="TutorialDescription">It's so cold and windy out there, you should collect some branches before leaving this deserted camp...</string>
 		<string name="Ok">Ok</string>
@@ -89,6 +95,11 @@ Contrôles:
 		<string name="Yes">Oui</string>
 		<string name="No">Non</string>
 
+
+		<string name="Quit">Quitter</string>
+		<string name="TryAgain">Reessayer</string>
+		<string name="Menu">Menu</string>
+		<string name="GameOver">Partie terminee</string>
 
 		<string name="DontLetTheFlameGoOut">Ne laisse pas ta flamme s'eteindre</string>
 		<string name="TutorialDescription">C'est si froid et venteux ici, tu devrais ramasser quelques branches avant de quitter ce camp désert...</string>

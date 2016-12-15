@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MenuManager : Singleton<MenuManager>
@@ -10,6 +11,16 @@ public class MenuManager : Singleton<MenuManager>
 	void Awake()
 	{
 		CloseAllMenus();
+
+		Transform panel = deathMenu.transform.Find("Panel");
+		panel.Find("Text").GetComponent<Text>().text = SettingsManager.Instance.GetString("GameOver");
+		panel.Find("Try Again").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("TryAgain");
+		panel.Find("Quit").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("Quit");
+
+		panel = escapeMenu.transform.Find("Panel");
+		panel.Find("Text").GetComponent<Text>().text = SettingsManager.Instance.GetString("Menu");
+		panel.Find("Try Again").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("TryAgain");
+		panel.Find("Quit").GetComponentInChildren<Text>().text = SettingsManager.Instance.GetString("Quit");
 	}
 
 	void Update()

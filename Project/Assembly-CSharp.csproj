@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\Singleton.cs" />
      <Compile Include="Assets\Scripts\SnowballRoll.cs" />
      <Compile Include="Assets\Scripts\SnowballSpawn.cs" />
+     <Compile Include="Assets\Scripts\Video.cs" />
      <Compile Include="Assets\Scripts\WindDamage.cs" />
      <Compile Include="Assets\Scripts\WindPush.cs" />
      <None Include="Assets\Resources\language.xml" />

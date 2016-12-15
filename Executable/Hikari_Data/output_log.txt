@@ -1,0 +1,34 @@
+Initialize engine version: 5.4.1f1 (649f48bbbf0f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 570 (ID=0x1081)
+    Vendor:   NVIDIA
+    VRAM:     1233 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\GitHub\Hikari\Executable\Hikari_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\GitHub\Hikari\Executable\Hikari_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\GitHub\Hikari\Executable\Hikari_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\GitHub\Hikari\Executable\Hikari_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\GitHub\Hikari\Executable\Hikari_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\GitHub\Hikari\Executable\Hikari_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\GitHub\Hikari\Executable\Hikari_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\GitHub\Hikari\Executable\Hikari_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.036 seconds
+Platform assembly: D:\GitHub\Hikari\Executable\Hikari_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\GitHub\Hikari\Executable\Hikari_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3280x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.566084 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 1970 -> priority: 1 
+  Thread -> id: 2e8 -> priority: 1 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.325408 ms
+Platform assembly: D:\GitHub\Hikari\Executable\Hikari_Data\Managed\System.Xml.dll (this message is harmless)
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3071.
+Total: 0.853032 ms (FindLiveObjects: 0.078722 ms CreateObjectMapping: 0.027643 ms MarkObjects: 0.371680 ms  DeleteObjects: 0.374685 ms)
+

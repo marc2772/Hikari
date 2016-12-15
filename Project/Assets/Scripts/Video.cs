@@ -17,6 +17,9 @@ public class Video : MonoBehaviour
 
 	void Start()
 	{
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Confined;
+
         ren.material.mainTexture = movie as MovieTexture;
         a.clip = movie.audioClip;
 

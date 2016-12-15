@@ -42,6 +42,7 @@ public class Menu : MonoBehaviour
 	public void Main()
 	{
 		//To lock the cursor within the window
+		Cursor.visible = true;
 		Cursor.lockState = CursorLockMode.Confined;
 
 		if(PlayMenu.activeSelf)
